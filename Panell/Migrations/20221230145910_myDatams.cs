@@ -4,7 +4,7 @@
 
 namespace Panell.Migrations
 {
-    public partial class myData : Migration
+    public partial class myDatams : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,6 +94,23 @@ namespace Panell.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Mesaj",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    message = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mesaj", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Sayfalar",
                 columns: table => new
                 {
@@ -108,11 +125,29 @@ namespace Panell.Migrations
                     sayfa_title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     sayfa_tarih = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     sayfa_order = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    sayfa_resim = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    sayfa_resim = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    sayfa_resimm = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sayfalar", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Temsilci",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    phone2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    adres = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Temsilci", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,7 +181,13 @@ namespace Panell.Migrations
                 name: "Iletisim");
 
             migrationBuilder.DropTable(
+                name: "Mesaj");
+
+            migrationBuilder.DropTable(
                 name: "Sayfalar");
+
+            migrationBuilder.DropTable(
+                name: "Temsilci");
 
             migrationBuilder.DropTable(
                 name: "Users");

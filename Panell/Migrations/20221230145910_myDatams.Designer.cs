@@ -11,8 +11,8 @@ using Panell.Models;
 namespace Panell.Migrations
 {
     [DbContext(typeof(SayfaContext))]
-    [Migration("20221227172346_myData")]
-    partial class myData
+    [Migration("20221230145910_myDatams")]
+    partial class myDatams
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -186,6 +186,34 @@ namespace Panell.Migrations
                     b.ToTable("Iletisim");
                 });
 
+            modelBuilder.Entity("Panell.Models.Mesaj", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Mesaj");
+                });
+
             modelBuilder.Entity("Panell.Models.Sayfalar", b =>
                 {
                     b.Property<int>("ID")
@@ -215,6 +243,9 @@ namespace Panell.Migrations
                     b.Property<string>("sayfa_resim")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("sayfa_resimm")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("sayfa_slug")
                         .HasColumnType("nvarchar(max)");
 
@@ -227,6 +258,34 @@ namespace Panell.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Sayfalar");
+                });
+
+            modelBuilder.Entity("Panell.Models.Temsilci", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("adres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Temsilci");
                 });
 
             modelBuilder.Entity("Panell.Models.Users", b =>

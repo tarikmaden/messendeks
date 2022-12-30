@@ -241,11 +241,14 @@ namespace Panell.Migrations
                     b.Property<string>("sayfa_resim")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("sayfa_resimm")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("sayfa_slug")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sayfa_tarih")
-                        .HasColumnType("datetime");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sayfa_title")
                         .HasColumnType("nvarchar(max)");

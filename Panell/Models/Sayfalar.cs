@@ -30,6 +30,11 @@ namespace Panell.Models
         public IFormFile Dosya { get; set; }
 
         public string? sayfa_resim { get; set; }
+        
+        [NotMapped]
+        public IFormFile Dosya2 { get; set; }
+
+        public string? sayfa_resimm { get; set; }
 
     }
 }

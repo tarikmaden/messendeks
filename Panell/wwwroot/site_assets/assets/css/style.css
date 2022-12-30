@@ -851,11 +851,22 @@ html a, body a {
 .me-book-area .grid .me-section-content {
   margin-left: 70px;
   color: #fff;
-  max-width: 390px;
+  max-width: 480px;
 }
-.me-book-area .grid .me-section-content .title, .me-book-area .grid .me-section-content .title span {
-  color: #fff;
+@media (max-width: 1200px) {
+  .me-book-area .grid .me-section-content {
+    margin-left: 70px;
+    color: #fff;
+    max-width: 390px;
+  }
+}
+.me-book-area .grid .me-section-content .title {
   font-size: 36px !important;
+  color: #000;
+}
+.me-book-area .grid .me-section-content .title span {
+    color: #fff;
+    font-size: 36px !important;
 }
 .me-book-area .grid .me-section-content p {
   color: #fff;
@@ -1628,6 +1639,7 @@ html a, body a {
   font-size: 34px;
   line-height: 50px;
   font-weight: 700;
+  max-width: 300px;
 }
 .me-shortcut .content .title .alt {
   font-size: 24px;
@@ -2274,11 +2286,6 @@ html a, body a {
 .me-bg-darker {
   background-color: #31455E;
 }
-@media (max-width: 1400px) {
-  .me-bg-darker .fullwidth {
-    margin-left: 0 !important;
-  }
-}
 @media (max-width: 1200px) {
   .me-bg-darker .margin {
     display: none;
@@ -2325,11 +2332,11 @@ html a, body a {
 }
 
 .fullwidth {
-  margin-left: -130px;
+  margin-left: -150px;
 }
 
 .left .fullwidth {
-  margin-left: 130px;
+  margin-left: 150px;
 }
 
 .text-orange {
@@ -2687,16 +2694,18 @@ textarea.form-control {
 }
 
 #chart-circle {
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .aspect-100 {
   position: relative;
   padding-bottom: 100%;
+  overflow: hidden;
 }
 .aspect-100 .img-aspect {
   position: absolute;

@@ -89,7 +89,8 @@ namespace Panell.Controllers
             Mesajs.message = Mesajs.message;
             _context.Add(Mesajs);
             _context.SaveChanges();
-            return Redirect(Request.Headers["Referer"].ToString());
+            TempData["iletisim_success"] = "success";
+            return RedirectToAction("iletisim", TempData);
         }
         
 

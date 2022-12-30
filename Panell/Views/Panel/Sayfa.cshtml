@@ -67,6 +67,14 @@
                                 <label for="inputDescription">Sayfa Resim</label>
                                 <input type="file" name="dosya" id="inputName" class="form-control">
                             </div>
+                            @if (@Model.ID != 8)
+                            {
+                                <div class="form-group">
+                                    <img class="img-fluid" src="/uploads/@Model.sayfa_resimm" /> <br />
+                                    <label for="inputDescription">Sayfa Resim (EK)</label>
+                                    <input type="file" name="dosya2" id="inputName" class="form-control">
+                                </div>
+                            }
                             <div class="form-group">
                                 <label for="inputName">Sayfa Title</label>
                                 <input type="text" name="sayfa_title" asp-for="@Model.sayfa_title" id="inputName"
