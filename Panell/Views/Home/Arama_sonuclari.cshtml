@@ -71,6 +71,17 @@
                                 </div>
                             }
                         </div>
+                        @if (ViewBag.totalCount > ViewBag.pageSize)
+                        {
+                            <ul class="pagination mt-5">
+                                @for (int i = 1; i <= (ViewBag.totalCount / ViewBag.pageSize) + 1; i++)
+                                {
+                                    <li class="page-item @(i == ViewBag.PageNumber ? "active" : "")">
+                                        <a class="page-link" href="@Url.Action("Arama_sonuclari", new {search = ViewBag.search ,page = i, pageSize = ViewBag.pageSize })">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
                     </div>
                 </div>
             </div>

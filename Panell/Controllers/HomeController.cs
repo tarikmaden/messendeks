@@ -45,14 +45,20 @@ namespace Panell.Controllers
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             return View();
         }
-        public IActionResult Haberler(int ID)
+
+        [HttpGet]
+        public IActionResult Haberler(int ID , int page = 1, int pageSize = 5)
         {
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.KurumsalListe = _context.Sayfalar.Where(x => x.sayfa_kategori == 2.ToString()).ToList();
-            ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).ToList();
             ViewBag.footer_year = DateTime.Now.Year.ToString();
             ViewBag.KurumsalPage = _context.Sayfalar.Find(2);
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            ViewBag.pageSize = pageSize;
+            ViewBag.PageNumber = page;
+            var sayfalar = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString());
+            ViewBag.totalCount = sayfalar.Count();
             return View();
         }
 
@@ -102,16 +108,23 @@ namespace Panell.Controllers
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             return View();
         }
-        public IActionResult Arama_sonuclari(string search)
+        
+        public IActionResult Arama_sonuclari(string search , int page = 1, int pageSize = 5)
         {
             ViewBag.search = search.ToString();
             ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).ToList();
-            ViewBag.Detay = _context.Sayfalar.Where(c => Convert.ToInt32(c.sayfa_kategori) == 3).Where(c => c.sayfa_adi.StartsWith(search)).ToList();
+            ViewBag.Detay = _context.Sayfalar.Where(c => Convert.ToInt32(c.sayfa_kategori) == 3).Where(c => c.sayfa_adi.StartsWith(search)).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             ViewBag.DetayCount = _context.Sayfalar.Where(c => Convert.ToInt32(c.sayfa_kategori) == 3).Where(c => c.sayfa_adi.StartsWith(search)).Count();
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+
+            ViewBag.pageSize = pageSize;
+            ViewBag.PageNumber = page;
+            var sayfalar = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString());
+            ViewBag.totalCount = sayfalar.Count();
             return View();
         }
+
         public IActionResult Hakkimizda(string ID)
         {
             ViewBag.KurumsalListe = _context.Sayfalar.Where(x => x.sayfa_kategori == 2.ToString()).ToList();

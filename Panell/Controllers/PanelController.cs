@@ -230,13 +230,13 @@ namespace Panell.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult Sayfa_listesi()
-        {
-            ViewBag.sayfalistesi = _context.Sayfalar.ToList();
-            return View();
-        }
+        // [HttpGet]
+        // [Authorize]
+        // public IActionResult Sayfa_listesi()
+        // {
+        //     ViewBag.sayfalistesi = _context.Sayfalar.ToList();
+        //     return View();
+        // }
 
         [HttpGet]
         [Authorize]
@@ -256,12 +256,12 @@ namespace Panell.Controllers
             return View();
         }
 
-        [Authorize]
-        public IActionResult Sayfa_olustur()
-        {
-            ViewBag.sayfalistesi = _context.Sayfalar.ToList();
-            return View();
-        }
+        // [Authorize]
+        // public IActionResult Sayfa_olustur()
+        // {
+        //     ViewBag.sayfalistesi = _context.Sayfalar.ToList();
+        //     return View();
+        // }
         [Authorize]
         public IActionResult Chart_yonetimi()
         {
@@ -270,18 +270,18 @@ namespace Panell.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        public IActionResult Sayfa_olustur(Sayfalar Sayfa)
-        {
-            Sayfa.sayfa_adi = Sayfa.sayfa_adi;
-            Sayfa.sayfa_slug = SeoUrl(Sayfa.sayfa_adi);
-            Sayfa.sayfa_tarih = DateTime.Now.ToString("dd.MM.yyyy");
-            _context.Add(Sayfa);
-            _context.SaveChanges();
-            return Redirect(Request.Headers["Referer"].ToString());
-        }
+        // [HttpPost]
+        // [Authorize]
+        // [ValidateAntiForgeryToken]
+        // public IActionResult Sayfa_olustur(Sayfalar Sayfa)
+        // {
+        //     Sayfa.sayfa_adi = Sayfa.sayfa_adi;
+        //     Sayfa.sayfa_slug = SeoUrl(Sayfa.sayfa_adi);
+        //     Sayfa.sayfa_tarih = DateTime.Now.ToString("dd.MM.yyyy");
+        //     _context.Add(Sayfa);
+        //     _context.SaveChanges();
+        //     return Redirect(Request.Headers["Referer"].ToString());
+        // }
 
         [HttpPost]
         [Authorize]
