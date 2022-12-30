@@ -1,0 +1,106 @@
+<nav class="me-navbar me-navbar-page with-dark-right">
+    <div class="container-fluid p-0">
+		<div class="row g-0">
+			<div class="col-6">
+				<ul class="nav-links left">
+					<li class="logo">
+						<a href="../">
+							<img src="~/uploads/@ViewBag.Iletisim.favicon" alt="logo" class="img-logo" />
+						</a>
+					</li>
+					@foreach (var item in ViewBag.sayfalistesi)
+					{
+                        if (@item.ID != 1)
+                        {
+						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+                        }
+					}
+                    <li><a href="/iletisim" class="link">İletişim</a></li>
+				</ul>
+			</div>
+
+			<div class="col-6">
+				<ul class="nav-links right">
+                    <li><a href="/yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
+                    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen" class="link search"><img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+                    </li>
+                </ul>
+                <ul class="nav-links right mobile">
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen2" class="link search"><img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search"><img src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" /></a>
+                    </li>
+                </ul>
+			</div>
+		</div>
+	</div>
+</nav>
+@Html.Partial("Head")
+
+@if (ViewBag.DetayCount > 0)
+{
+    <div class="me-bg-darker me-1400-100">
+        <div class="me-area-content left">
+            <div class="content-area">
+                <div class="fullwidth">
+                    <div class="container">
+                        <div class="page-search-result pt-5 mt-3">
+
+                            <div class="top-box">
+                                <h1 class="title">@ViewBag.search</h1>
+                                <p>araması için @ViewBag.DetayCount Adet sonuç bulundu.</p>
+                            </div>
+
+                            @foreach (var item in ViewBag.Detay as List<Sayfalar>)
+                            {
+                                <div class="me-new-horizontal">
+                                    <ul class="me-breadcrumb before-none">
+                                        <li><a href="../">Anasayfa</a></li>
+                                        <li><a href="#" class="active">@item.sayfa_adi</a></li>
+                                    </ul>
+                                    <h2 class="title">
+                                        <a style="color:inherit" href="/Haber/@item.ID">@item.sayfa_adi</a>
+                                    </h2>
+                                    <a href="/Haber/@item.ID" class="link">Sayfaya Git
+                                    <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="" />
+                                </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="me-bg-darker me-1400-100">
+        <div class="me-area-content left">
+            <div class="content-area">
+                <div class="fullwidth">
+                    <div class="content">
+                        <div class="page-search-result" style="padding-bottom: 70vh;">
+
+                            <div class="top-box">
+                                <h1 class="title">"@ViewBag.search" <span class="fw-normal">araması ile ilgili sonuç bulunamadı.</span>
+                                </h1>
+                                <p>Aramanızı daraltmayı deneyebilir veya gitmek istediğiniz içeriğe ulaşmak için<br>
+                                    menü linklerimizi kullanabilirsiniz.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin"></div>
+        </div>
+    </div>
+}
+

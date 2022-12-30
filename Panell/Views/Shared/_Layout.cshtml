@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/site_assets/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/site_assets/vendor/swiperjs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/site_assets/assets/css/style.css" />
+</head>
+
+<body>
+
+    @RenderBody()
+
+    <footer class="me-footer me-footer-home">
+        <div class="container container-940">
+            <div class="top">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="~/uploads/@ViewBag.Iletisim.logo" alt="" class="img-logo" />
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="text-end content">
+                            <p>
+                                @ViewBag.Iletisim.adres
+                            </p>
+                            <p>
+                                <a href="tel:@ViewBag.Iletisim.phone">@ViewBag.Iletisim.phone</a>
+                                <span class="text-orange">&</span>
+                                <a href="tel:@ViewBag.Iletisim.text1">@ViewBag.Iletisim.text1</a>
+                            </p>
+                            <p><a href="mailto:@ViewBag.Iletisim.email">@ViewBag.Iletisim.email</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="container container-940">
+                <p>© @ViewBag.footer_year. All Rights Reserved.</p>
+                <ul class="bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions </a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/site_assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/site_assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/site_assets/vendor/swiperjs/swiper-bundle.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="~/site_assets/assets/js/chart.js"></script>
+
+
+    <script src="~/site_assets/assets/js/main.js"></script>
+</body>
+
+</html>

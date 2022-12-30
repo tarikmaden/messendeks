@@ -1,0 +1,233 @@
+﻿<nav class="me-navbar">
+	<div class="container-fluid p-0">
+		<div class="row g-0">
+			<div class="col-6">
+				<ul class="nav-links left">
+					<li class="logo">
+						<a href="../">
+							<img src="~/uploads/@ViewBag.Iletisim.logo" alt="logo" class="img-logo" />
+						</a>
+					</li>
+					@foreach (var item in ViewBag.sayfalistesi)
+					{
+                        if (@item.ID != 1)
+                        {
+						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+                        }
+					}
+                    <li><a href="/iletisim" class="link">İletişim</a></li>
+				</ul>
+			</div>
+
+			<div class="col-6">
+				<ul class="nav-links right">
+					<li><a href="yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
+					<li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+					<li>
+						<a href="javascript:void(0)" id="jsSearchOpen" class="link search"><img
+								src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+					</li>
+				</ul>
+				<ul class="nav-links right mobile">
+					<li>
+						<a href="javascript:void(0)" id="jsSearchOpen2" class="link search"><img
+								src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search"><img
+								src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+
+@Html.Partial("Head")
+
+<div class="me-slider-home">
+    <div class="swiper me-swiper-home">
+        <div class="swiper-wrapper">
+
+            @foreach (var item in ViewBag.slider)
+            {
+                <div class="swiper-slide">
+                    <div class="me-swiper-home-item with-video" style="background-image: url('/uploads/@item.sayfa_resim');">
+                        <div class="content">
+                            <div class="w-580">
+                                <h2 class="title">@item.sayfa_adi</h2>
+                                <p>@Html.Raw(@item.sayfa_ozet)</p>
+                            </div>
+                        </div>
+                        <video width="100%" height="100%" autoplay muted loop>
+                            <source src="~/site_assets/assets/img/video1.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="me-swiper-home-bar container container-1200">
+        <div class="me-swiper-home-count"></div>
+        <div class="me-swiper-home-nav">
+            <div class="button me-sh-prev"><img src="~/site_assets/assets/img/icons/arrow-left-slider.svg" alt="left" /></div>
+            <div class="button me-sh-next"><img src="~/site_assets/assets/img/icons/arrow-right-slider.svg" alt="right" /></div>
+        </div>
+    </div>
+    <div class="me-swiper-home-progressbar"></div>
+</div>
+
+<section class="me-feature-chart">
+    <div class="container container-1200">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-lg-5 order-sm-2 order-md-1 order-1">
+                <div class="me-section-content">
+                    <img src="~/site_assets/assets/img/analiz-text.svg" alt="analiz" class="img-text" />
+                    <h2 class="title">
+                        <span style="color: #feab45;">MESS Yatırımcı</span>
+                        @ViewBag.analiz.sayfa_adi
+                    </h2>
+                    <p>
+                        @Html.Raw(ViewBag.analiz.sayfa_icerik)
+                    </p>
+                    <a href="#" class="btn btn-primary">Sonuçları İncele 
+                        <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="right" class="img-right" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-7 position-relative order-sm-1 order-md-2">
+
+                <div class="aspect-100">
+                    <div id="chart-circle"></div>
+                </div>
+
+                <div class="out-div">
+                    <img src="~/site_assets/assets/img/scala.svg" alt="Skala" class="od-img" />
+                    <div class="texts">
+                        <div class="box">
+                            <h3 class="title">Yüksek Güven</h3>
+                            <p>Ekosistem şartları imalat sanayi yatırımcılarına güven vermekte ve yatırım yapmaya teşvik etmektedir.</p>
+                        </div>
+                        <div class="box">
+                            <h3 class="title">Düşük Güven</h3>
+                            <p>Ekosistem şartları imalat sanayi yatırımcılarının yatırımlarını genişletmesine elverişli değildir. Yatırımcılar var olan yatırımlarıyla devam edip pazarı gözlemler.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="me-book-area">
+    <div class="grid">
+        <div class="left">
+            <div class="box">
+                <div class="normal">
+                    <div class="book-container">
+                        <div class="book">
+                            <img alt="Kitap" src="~/site_assets/assets/img/book.jpg" />
+                        </div>
+                    </div>
+                    <img src="~/site_assets/assets/img/book-mobile.png" alt="" class="book-mobile" />
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="box">
+                <div class="normal">
+                    <div class="me-section-content text-end">
+                        <img src="~/site_assets/assets/img/arastirma-text.svg" alt="araştırma" class="img-text" />
+                        <h2 class="title">
+                            <span>
+                                <span style="display: inline;" class="fw-bold">MESS</span> 
+                            @ViewBag.yatirimci.sayfa_adi
+                            </span>
+                            <!-- Araştırması Raporu -->
+                        </h2>
+                        <p>
+                            @Html.Raw(@ViewBag.yatirimci.sayfa_ozet)
+                        </p>
+                        <div class="on-desktop">
+                            <a href="#" class="btn">MESS Yatırımcı Görüşü'nü İncele <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+
+                            <a href="#" class="btn">MESS Yatırımcı Görüşü'nü İndir <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                        </div>
+                        <div class="on-mobile d-none">
+                            <a href="#" class="btn">Raporu İncele <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+
+                            <a href="#" class="btn">Araştırmaya Katıl <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="me-bg-darker">
+    <div class="me-area-content">
+        <div class="margin"></div>
+        <div class="content-area right fafafa home">
+            <div class="me-feature-sanayi fullwidth">
+                <div class="container-fluid p-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-lg-6">
+                            <img src="/uploads/@ViewBag.endeksi.sayfa_resim" alt="@ViewBag.endeksi.sayfa_adi" class="img" />
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="me-section-content">
+                                <img src="~/site_assets/assets/img/sanayici-gorusu-text.svg" alt="analiz" class="img-text" />
+                                <h2 class="title text-dark">
+                                    <span>@Html.Raw(@ViewBag.endeksi.sayfa_adi)</span> Endeksi 
+                                    <span class="alt text-dark">(Yakında)</span>
+                                </h2>
+                                <p>
+                                    @Html.Raw(@ViewBag.endeksi.sayfa_ozet)
+                                </p>
+                                <a href="#" class="link">Daha Fazla 
+                                    <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="me-shortcuts fullwidth">
+                <div class="container container-940">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="/yatirimci-gorusu-endeksi">
+                                <div class="me-shortcut">
+                                    <img src="~/site_assets/assets/img/sh1.jpg" alt="shortcut" class="img-aspect" />
+                                    <div class="content">
+                                        <h2 class="title">Yatırımcı Görüşü Endeksi</h2>
+                                        <span class="icon"><img src="~/site_assets/assets/img/icons/arrow-right-white-sh.svg" alt="arrow" /></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="/yapim-asamasinda">
+                                <div class="me-shortcut orange">
+                                    <img src="~/site_assets/assets/img/sh1.jpg" alt="shortcut" class="img-aspect" />
+                                    <div class="content">
+                                        <h2 class="title">Sanayicinin Nabzı Endeksi 
+                                            <span class="alt">(Yakında)</span>
+                                        </h2>
+                                        <span class="icon"><img src="~/site_assets/assets/img/icons/arrow-right-white-sh.svg" alt="arrow" /></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

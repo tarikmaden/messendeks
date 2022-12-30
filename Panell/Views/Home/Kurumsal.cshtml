@@ -1,0 +1,77 @@
+﻿@Html.Partial("Menu")
+
+@Html.Partial("Head")
+
+<section class="me-page-head">
+	<div class="grid">
+		<div class="left">
+			<div class="box">
+				<div class="normal"></div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="box">
+				<div class="normal"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="page-head-content">
+			<h1 class="title">
+				@ViewBag.KurumsalPage.sayfa_desc
+			</h1>
+			<ul class="me-breadcrumb">
+				<li><a href="../">Ana Sayfa</a></li>
+				<li><a href="#" class="active">@ViewBag.KurumsalPage.sayfa_adi</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<div class="me-bg-darker me-1400-100">
+	<div class="me-area-content left">
+		<div class="content-area">
+			<div class="fullwidth">
+				<div class="content">
+					<div class="me-about-section">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="me-as-sidebar">
+										<ul class="list-unstyled">
+											@foreach (var item in ViewBag.KurumsalListe)
+											{
+												<li><a href="/hakkimizda/@item.sayfa_slug">@item.sayfa_adi</a></li>
+											}
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-lg-8">
+									<div class="me-as-content">
+										<img src="~/site_assets/assets/img/mess-hakkinda-text.svg" alt="" />
+
+										<p>
+											@Html.Raw(ViewBag.KurumsalPage.sayfa_ozet)
+										</p>
+
+										@if (ViewBag.KurumsalPage.sayfa_resim != null)
+										{
+											<img src="/uploads/@ViewBag.KurumsalPage.sayfa_resim" alt="@ViewBag.KurumsalPage.sayfa_adi" class="w-100" />
+										}
+										
+
+										<p>
+											@Html.Raw(ViewBag.KurumsalPage.sayfa_icerik)
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="margin"></div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+.dil_menu {
+  margin: 0 !important;
+  padding: 9px !important;
+}
+.dil_menu li {
+    list-style-type: none;
+    display:inline-flex;
+}

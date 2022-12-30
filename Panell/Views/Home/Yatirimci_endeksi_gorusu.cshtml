@@ -1,0 +1,371 @@
+@Html.Partial("Menu")
+
+@Html.Partial("Head")
+
+<section class="me-page-head bg-white">
+    <div class="grid">
+        <div class="left">
+            <div class="box">
+                <div class="normal"></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="box">
+                <div class="normal"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-head-content">
+            <h1 class="title mini">
+                @ViewBag.yatirimci.sayfa_desc
+            </h1>
+            <ul class="me-breadcrumb">
+                <li><a href="../">Ana Sayfa</a></li>
+                <li><a href="#" class="active">@ViewBag.yatirimci.sayfa_adi</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="me-bg-darker page-endex">
+    <div class="me-area-content left">
+        <div class="content-area px-0 bg-white">
+            <div class="fullwidth">
+                <div class="me-president section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="area-president text-center">
+                                    <div class="img-president">
+                                        <img src="~/site_assets/assets/img/president.png" alt="Yönetim Kurulu" class="img-cover" />
+                                    </div>
+                                    <div class="img-detail">
+                                        <h4 class="title">Özgür Burak AKKOL</h4>
+                                        <h5 class="subtitle">MESS Yönetim Kurulu Başkanı</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="content">
+                                    <!--<h4 class="title">Lorem ipsum dolor sit amet consectetur.<br>
+                                            Nunc in leo id</h4>-->
+                                    <p>
+                                        @Html.Raw(ViewBag.yatirimci.sayfa_ozet)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="me-three-box section">
+                    <div class="container">
+                        <div class="head-title">
+                            <h2 class="title">MESS Yatırımcı Görüşü Endeksi</h2>
+                            <!--<h3 class="subtitle">Alt Bileşenleri</h3>-->
+                        </div>
+
+                        <div class="grid">
+                            <a href="#me-why-amac" class="btn-three-box">
+                                <div class="icon"><img src="~/site_assets/assets/img/icons/flag-blue.svg" alt="" /></div>
+                                <div class="text">Amaç</div>
+                                <div class="hover"><img src="~/site_assets/assets/img/three-box-bg.png" alt="" /></div>
+                            </a>
+
+                            <a href="#me-why-kapsam" class="btn-three-box">
+                                <div class="icon"><img src="~/site_assets/assets/img/icons/database-blue.svg" alt="" /></div>
+                                <div class="text">Kapsam</div>
+                                <div class="hover"><img src="~/site_assets/assets/img/three-box-bg.png" alt="" /></div>
+                            </a>
+
+                            <a href="#me-why-girdiler" class="btn-three-box">
+                                <div class="icon"><img src="~/site_assets/assets/img/icons/stats-blue.svg" alt="" /></div>
+                                <div class="text">Girdiler</div>
+                                <div class="hover"><img src="~/site_assets/assets/img/three-box-bg.png" alt="" /></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="me-why section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="content">
+                                    <div class="box" id="me-why-amac">
+                                        <img src="~/site_assets/assets/img/nedir-text.svg" alt="nedir" class="mb-4" />
+                                        <div class="head-title">
+                                            @Html.Raw(ViewBag.yatirimci.sayfa_icerik)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-7">
+                                <div class="images-area">
+                                    <div class="images">
+                                        <img src="~/site_assets/assets/img/endex-left.png" alt="endex" class="img left" />
+                                        <img src="~/site_assets/assets/img/endex-right.png" alt="endex" class="img right" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="me-boxes section" id="me-why-girdiler">
+                    <div class="container">
+                        <div class="head-title text-start">
+                            <img src="~/site_assets/assets/img/nedir-text.svg" alt="nedir" class="mb-4" />
+                            <h3 class="subtitle mb-0">MESS Yatırımcı Görüş Endeksi</h3>
+                            <h2 class="title">Girdiler</h2>
+                        </div>
+
+                        <div class="grid">
+                        @foreach (var itemListe in ViewBag.yatirimci_listesi as List<Dsayfalar>)
+                        {
+                            <div class="item">
+                                <div class="me-flip-card">
+                                    <div class="me-fc-inner">
+                                        <div class="me-fc-front">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <img src="/uploads/@itemListe.sayfa_resim" alt="@itemListe.sayfa_adi" class="img" />
+                                                </div>
+                                                <h3 class="title mb-0">@itemListe.sayfa_adi</h3>
+                                                <a href="javascript:void(0)" class="arrow">
+                                                    <img src="~/site_assets/assets/img/icons/arrow-right-flip.svg" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="me-fc-back">
+                                            <div class="content">
+                                                <h3 class="title mb-0">@itemListe.sayfa_ozet</h3>
+                                                <a href="javascript:void(0)" class="arrow">
+                                                    <img src="~/site_assets/assets/img/icons/arrow-left-flip.svg" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="me-chart section">
+                    <section class="me-feature-chart py-0">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 col-lg-5 order-sm-2 order-md-1 order-1">
+                                    <div class="me-section-content">
+                                        <img src="~/site_assets/assets/img/analiz-text.svg" alt="analiz" class="img-text" />
+                                        <h2 class="title"><span>MESS Yatırımcı</span> Görüşü Endeksi</h2>
+                                        <p>
+                                            Yıllık bazda hesaplanan MESS Yatırımcı Görüşü Endeksi ile Türkiye pazarını, sanayi yatırımcısının bakış açısıyla değerlendirip, yatırım ortamının performansının takibini sağlamayı amaçlıyoruz.
+                                            Uzun yıllardır “Kearney Global FDI Confidence Index” olarak bu alanda referans kabul edilen çalışmadan temellenen bu endeks, 15 alt başlıkta yatırımcı ortamının nabzını tutacaktır.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-7 position-relative order-sm-1 order-md-2">
+                                    <div class="aspect-100">
+                                        <div id="chart-circle"></div>
+                                    </div>
+
+                                    <div class="out-div">
+                                        <img src="~/site_assets/assets/img/scala.svg" alt="Skala" class="od-img" />
+                                        <div class="texts">
+                                            <div class="box">
+                                                <h3 class="title">Yüksek Güven</h3>
+                                                <p>Ekosistem şartları imalat sanayi yatırımcılarına güven vermekte ve yatırım yapmaya teşvik etmektedir.</p>
+                                            </div>
+                                            <div class="box">
+                                                <h3 class="title">Düşük Güven</h3>
+                                                <p>Ekosistem şartları imalat sanayi yatırımcılarının yatırımlarını genişletmesine elverişli değildir. Yatırımcılar var olan yatırımlarıyla devam edip pazarı gözlemler.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="me-tabs section">
+                    <div class="container">
+                        <div class="mobile-scroll">
+                            <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="id-tab-1" data-bs-toggle="pill" data-bs-target="#tab-1" type="button" role="tab" aria-controls="tab-1" aria-selected="true">
+                                        Yatırımcının Odak Noktaları
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="id-tab-2" data-bs-toggle="pill" data-bs-target="#tab-2" type="button" role="tab" aria-controls="tab-2" aria-selected="false">
+                                        Yatırım Ortamının Güçlü Yanları
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="id-tab-3" data-bs-toggle="pill" data-bs-target="#tab-3" type="button" role="tab" aria-controls="tab-3" aria-selected="false">
+                                        Yatırım Ortamının Gelişime Açık Yanları
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" tabindex="0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="img">
+                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="content">
+                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            <div class="head-title text-start">
+                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h2 class="title">
+                                                    Türkiye’deki Yatırımcının Odak<br />
+                                                    Noktaları
+                                                </h2>
+                                            </div>
+                                            <p>
+                                                Endeks çalışması sürecinde her bir katılımcıdan 15 alt başlık içerisinden yatırımcı gözüyle en önemli olduğunu düşündükleri 5 maddeyi belirtmeleri istenmiştir. En çok seçilen ve yatırımcı odak
+                                                noktaları arasında yer alan maddelere bakıldığında:
+                                            </p>
+                                            <ol class="mb-5">
+                                                <li class="mb-1">Yurt içi makroekonomik koşulların iyileşmesi</li>
+                                                <li class="mb-1">Mevzuatın yatırım ortamını desteklemesi</li>
+                                                <li class="mb-1">Finansman opsiyonlarına erişim</li>
+                                                <li class="mb-1">Yatırımcılara devlet teşvikleri</li>
+                                                <li class="mb-1">Hammaddeye ve diğer girdilere erişim şeklinde gerçekleşmiştir</li>
+                                            </ol>
+                                            <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tab-2" role="tabpanel" tabindex="0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="img">
+                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="content">
+                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            <div class="head-title text-start">
+                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h2 class="title">
+                                                    Türkiye’deki Yatırım Ortamının<br />
+                                                    Gelişime Açık Yanları
+                                                </h2>
+                                            </div>
+                                            <p>
+                                                Bu yıl ilk defa hayata geçirilen çalışma sonuçlarına göre pazar (yurt içi makroekonomik performans ve yurt içi pazar büyüklüğü) ve hukuki altyapı (genel güvenlik ortamı ve mevzuat) düşük güven
+                                                aralığında yer almaktadır. Bu alanlarda yapılacak iyileştirmelerin sanayi yatırımcısının yatırımlarını artırmalarına ve büyümelerine katkısı çok büyük olacaktır.
+                                            </p>
+                                            <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tab-3" role="tabpanel" tabindex="0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="img">
+                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="content">
+                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            <div class="head-title text-start">
+                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h2 class="title">
+                                                    Türkiye’deki Yatırımcının Odak<br />
+                                                    Noktaları 3
+                                                </h2>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit donec a adipiscing aliquam dictumst tempor quam. Non amet nunc ipsum tellus. Ut metus, facilisis aliquam, cras suspendisse at quis.
+                                                Id elit purus urna quis elementum tortor turpis imperdiet consequat. Egestas integer duis imperdiet justo, turpis parturient pharetra nulla adipiscing. Commodo a risus pretium nisi, semper
+                                                dignissim congue.
+                                            </p>
+                                            <p>
+                                                Amet quis aliquam purus nulla et mauris turpis. In pellentesque diam elit est. Cursus sed neque tempor, viverra arcu magnis quis imperdiet. Vivamus ultricies sagittis amet facilisis feugiat.
+                                                Risus in eu dolor, ullamcorper faucibus massa nibh. Eget vestibulum dolor velit etiam vitae semper. Nunc, integer sit turpis lorem amet. In leo et molestie tempus diam leo. Id tincidunt mattis
+                                                aliquam nulla pretium sagittis, ultricies aliquet.
+                                            </p>
+                                            <p>Sed molestie lacus feugiat nunc pretium at enim. Sed purus tortor, mi tristique sit a morbi mauris, felis. Magna dui facilisis malesuada.</p>
+                                            <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="me-news section">
+                    <div class="container">
+                        <img src="~/site_assets/assets/img/gecmis-analizler-text.svg" alt="" class="mb-5" />
+                        <div class="swiper-with-buttons mb-5">
+                            <div class="swiper me-swiper-mini-news">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="me-news-mini">
+                                            <span class="date"><img src="~/site_assets/assets/img/icons/calendar-blue.svg" alt="calendar" /> 28 Ağustos 2022</span>
+                                            <h3 class="title">Energy-intensive industries want 'compensation' for green transition</h3>
+                                            <a href="#" class="link">Daha Fazla <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" /></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="me-news-mini">
+                                            <span class="date"><img src="~/site_assets/assets/img/icons/calendar-blue.svg" alt="calendar" /> 28 Ağustos 2022</span>
+                                            <h3 class="title">Energy-intensive industries want 'compensation' for green transition</h3>
+                                            <a href="#" class="link">Daha Fazla <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" /></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="me-news-mini">
+                                            <span class="date"><img src="~/site_assets/assets/img/icons/calendar-blue.svg" alt="calendar" /> 28 Ağustos 2022</span>
+                                            <h3 class="title">Energy-intensive industries want 'compensation' for green transition</h3>
+                                            <a href="#" class="link">Daha Fazla <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" /></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="me-news-mini">
+                                            <span class="date"><img src="~/site_assets/assets/img/icons/calendar-blue.svg" alt="calendar" /> 28 Ağustos 2022</span>
+                                            <h3 class="title">Energy-intensive industries want 'compensation' for green transition</h3>
+                                            <a href="#" class="link">Daha Fazla <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="me-sb-prev me-sb" id="me-sb-prev2"><img src="~/site_assets/assets/img/icons/swiper-button-prev.svg" alt="prev" /></div>
+                            <div class="me-sb-next me-sb" id="me-sb-next2"><img src="~/site_assets/assets/img/icons/swiper-button-prev.svg" alt="next" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="margin"></div>
+    </div>
+</div>

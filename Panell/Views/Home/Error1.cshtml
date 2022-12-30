@@ -1,0 +1,67 @@
+<nav class="me-navbar me-navbar-page with-dark-right">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-6">
+                <ul class="nav-links left">
+                    <li class="logo">
+                        <a href="../">
+                            <img src="~/uploads/@ViewBag.Iletisim.favicon" alt="logo" class="img-logo" />
+                        </a>
+                    </li>
+                    @foreach (var item in ViewBag.sayfalistesi)
+					{
+                        if (@item.ID != 1)
+                        {
+						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+                        }
+					}
+                    <li><a href="/iletisim" class="link">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6">
+                <ul class="nav-links right">
+                    <li><a href="/yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
+                    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-links right mobile">
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen2" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+@Html.Partial("Head")
+
+
+<div class="me-bg-darker">
+    <div class="me-area-content left">
+        <div class="content-area px-0">
+
+            <div class="me-404">
+                <div class="container">
+                    <h2 class="big-title">404</h2>
+                    <h1 class="title">Sayfa yapım aşamasında...</h1>
+                    <a href="../" class="btn btn-warning">Ana Sayfa</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="margin"></div>
+    </div>
+</div>

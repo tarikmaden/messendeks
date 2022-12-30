@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "Sayfa Oluştur";
+    Layout = "~/Views/Shared/PanelLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Sayfa Oluştur</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active">Sayfa Oluştur</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form asp-action="Dil_olustur" method="post">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Genel</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputName">Dil Adı</label>
+                                        <input type="text" name="dil_adi" id="inputName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputName">Dil Kısaltma</label>
+                                        <input type="text" name="dil_kisaltma" id="inputName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px">
+                <div class="col-12">
+                    <a href="#" class="btn btn-secondary">Vazgeç</a>
+                    <input type="submit" value="Dil Oluştur" class="btn btn-success float-right">
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- /.content -->
+    <!-- Main content -->
+    <section class="content">
+        <form asp-action="Sayfalara_dil_ata" method="post">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Sayfa Çevirisi</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputName">Sayfa Adı</label>
+                                        <select class="form-control" name="baglantili_sayfa">
+                                            @foreach (var sayfalar in ViewBag.sayfalistesi as List<Sayfalar>)
+                                            {
+                                                <option value="@sayfalar.ID">@sayfalar.sayfa_adi</option>
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputName">Dil Adı</label>
+                                        <select class="form-control" name="baglantili_dil">
+                                            @foreach (var diller in ViewBag.dillistesi as List<Diller>)
+                                            {
+                                                <option value="@diller.ID">@diller.dil_adi</option>
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px">
+                <div class="col-12">
+                    <a href="#" class="btn btn-secondary">Vazgeç</a>
+                    <input type="submit" value="Dil Oluştur" class="btn btn-success float-right">
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- /.content -->
+
+    <!-- Main content -->
+    <section class="content">
+        <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Sayfa Dil Çevirileri</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <table class="table table-striped projects">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 1%">
+                                            ID
+                                        </th>
+                                        <th>
+                                            Sayfa Adı
+                                        </th>
+                                        <th>
+                                            Dil Adı
+                                        </th>
+                                        <th>
+                                            İşlemler
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in ViewBag.digersayfalar as List<Dsayfalar>)
+                                    {
+                                        @foreach (var sayfalar in ViewBag.sayfalistesi as List<Sayfalar>)
+                                        {
+                                            @foreach (var diller in ViewBag.dillistesi as List<Diller>)
+                                            {
+                                                if (sayfalar.ID.ToString() == item.baglantili_sayfa && item.baglantili_dil == diller.ID.ToString())
+                                                {
+
+                                                    <tr>
+                                                        <td>
+                                                            @item.ID
+                                                        </td>
+                                                        <td>
+                                                            @sayfalar.sayfa_adi
+                                                        </td>
+                                                        <td>
+                                                            @diller.dil_adi
+                                                        </td>
+
+                                                        <td class="project-actions text-left">
+                                                            <a asp-action="DSayfa_sil" asp-route-id="@item.ID" class="btn btn-danger btn-sm">
+                                                                <i class="fas fa-trash">
+                                                                </i>
+                                                                Sil
+                                                            </a>
+                                                        </td>
+
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,90 @@
+@mixin f-align-center-justify-end
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    
+@mixin f-align-center-justify-center
+    display: flex
+    align-items: center
+    justify-content: center
+
+@mixin f-align-center-justify-between
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+@mixin f-align-center-justify-start
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+@mixin f-align-start-justify-end
+    display: flex
+    align-items: flex-start
+    justify-content: flex-end
+
+@mixin f-align-start-justify-start
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+
+
+@mixin bg-image-cover
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
+
+@mixin absolute-all-center
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
+@mixin absolute-horizontal-center
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+@mixin absolute-vertical-center
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+
+
+@mixin list-unstyled
+    padding-left: 0
+    li
+        list-style: none
+
+@mixin list-inline
+    li
+        display: inline-block
+        
+    
+@mixin aspectratio-56-100w
+    position: relative
+    padding-bottom: 56.25%
+    .img-aspect
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+
+
+@mixin aspectratio-100-100w
+    position: relative
+    padding-bottom: 100%
+    .img-aspect
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+
+
+@mixin bg-image-cover
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat

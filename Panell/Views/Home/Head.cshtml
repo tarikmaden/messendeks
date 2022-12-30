@@ -1,0 +1,64 @@
+﻿<div class="me-offcanvas" id="jsOffcanvasMenu">
+	<div class="top">
+		<img src="~/uploads/@ViewBag.Iletisim.favicon" alt="Mess Endeks" class="img-logo" />
+		<a href="javascript:void(0)" id="jsOffcanvasClose" class="close-button">
+			<img src="~/site_assets/assets/img/icons/close-blue.svg" alt="Close" />
+		</a>
+	</div>
+	<div class="content">
+		<ul class="offcanvas-links list-unstyled">
+			@foreach (var item in ViewBag.sayfalistesi)
+			{
+				if (@item.ID != 1)
+				{
+					<li><a href="/@item.sayfa_slug">@item.sayfa_adi</a></li>
+				}
+			}
+			<li><a href="/iletisim">İletişim</a></li>
+			<li><a href="/yatirimci-gorusu-endeksi">Yatırımcı Görüşü Endeksi</a></li>
+            <li><a href="/yapim-asamasinda">Sanayicinin Nabzı Endeksi</a></li>
+		</ul>
+		<div class="bottom">
+			<div class="grid-2">
+				<a href="/yapim-asamasinda">KVKK Aydınlatma Metni</a>
+				<a href="/yapim-asamasinda">Gizlilik ve Veri Politikası</a>
+			</div>
+			<ul class="list-unstyled social">
+				<li>
+					<a href="@ViewBag.Iletisim.twitter">
+						<img src="~/site_assets/assets/img/icons/twitter.svg" alt="twitter" />
+					</a>
+				</li>
+				<li>
+					<a href="@ViewBag.Iletisim.youtube">
+						<img src="~/site_assets/assets/img/icons/linkedin.svg" alt="linkedin" />
+					</a>
+				</li>
+				<li>
+					<a href="@ViewBag.Iletisim.instagram">
+						<img src="~/site_assets/assets/img/icons/instagram.svg" alt="instagram" />
+					</a>
+				</li>
+				<li>
+					<a href="@ViewBag.Iletisim.facebook">
+						<img src="~/site_assets/assets/img/icons/facebook.svg" alt="facebook" />
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="bg-blur"></div>
+
+<div class="me-search-area" id="jsSearchArea">
+	<div class="container container-940">
+		<form asp-action="Arama_sonuclari" class="form" method="post">
+			<img src="~/site_assets/assets/img/icons/search-blue.svg" alt="Ara" class="icon" />
+			<input type="text" name="search" class="form-control" placeholder="Arayınız..." />
+			<button type="submit" class="btn btn-primary">Arama Yap</a>
+			<a href="javascript:void(0)" class="close-button" id="jsSearchClose"> 
+				<img src="~/site_assets/assets/img/icons/close-white.svg" alt="close" />
+			</a>
+		</form>
+	</div>
+</div>
