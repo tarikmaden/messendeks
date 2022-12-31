@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Panell.Entities;
 
 namespace Panell.Models
 {
@@ -14,5 +15,7 @@ namespace Panell.Models
         public DbSet<Iletisim> Iletisim { get; set; }
         public DbSet<Diller> Diller { get; set; }
         public DbSet<Temsilci> Temsilci { get; set; }
+        public DbSet<ChartRadarHeader> ChartRadarHeaders { get; set; }
+        public DbSet<ChartRadarItem> ChartRadarItems { get; set; }
     }
 }

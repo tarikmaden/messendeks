@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using MessagePack;
+using Panell.Entities;
 
 namespace Panell.Controllers
 {
@@ -740,5 +741,122 @@ namespace Panell.Controllers
         }
         // dil yapı
 
+
+        #region DSM
+        [Authorize]
+        public IActionResult ChartRadarTimeLineTanimListe()
+        {
+
+            var chartHeaders = _context.ChartRadarHeaders.ToList();
+            var model = new ChartModel
+            {
+                ChartRadarHeaders = chartHeaders
+            };
+
+            ViewBag.sayfalistesi = _context.Sayfalar.ToList();
+            return View(model);
+        }
+        public IActionResult ChartHeaderEkleDuzenle(int id = 0)
+        {
+            var model = new ChartModel
+            {
+
+            };
+
+            if (id > 0)
+            {
+                var chartHeader = _context.ChartRadarHeaders.Find(id);
+
+                model.ChartRadarHeader = chartHeader;
+
+            }
+            var chartItems = _context.ChartRadarItems.Where(a => a.ChartRadarHeaderId == id).ToList();
+
+            var kayitliSay = chartItems.Count;
+            var limit = 6;
+            for (int i = kayitliSay; i < limit; i++)
+            {
+                chartItems.Add(new ChartRadarItem());
+            }
+
+            model.ChartRadarItems = chartItems;
+            return PartialView("_ChartHeaderEkleDuzenle", model);
+        }
+
+
+        [HttpPost]
+        [Authorize]
+
+        public IActionResult ChartHeaderEkleDuzenleKaydet(ChartModel model)
+        {
+            var header = model.ChartRadarHeader;
+            var items = model.ChartRadarItems.Where(a => a.Deger1 > 0 && a.Deger2 > 0).ToList();
+
+            var state = 0;
+            var message = "Bilgileri Eksiksiz Giriniz";
+            if (items.Any() && !string.IsNullOrWhiteSpace(header.ChartRadarHeaderAdi))
+            {
+                header.RenkKodu = header.RenkKodu ?? "#fff";
+                state = 1;
+                if (header.Id == 0)
+                {
+                    var yeniItem = new ChartRadarHeader
+                    {
+                        ChartRadarHeaderAdi = header.ChartRadarHeaderAdi,
+                        RenkKodu = header.RenkKodu,
+
+                    };
+                    _context.ChartRadarHeaders.Add(yeniItem);
+                    _context.SaveChanges();
+                    header = yeniItem;
+                }
+                else
+                {
+                    var editItem = _context.ChartRadarHeaders.Find(header.Id);
+                    editItem.RenkKodu = header.RenkKodu;
+                    editItem.ChartRadarHeaderAdi = header.ChartRadarHeaderAdi;
+                    _context.SaveChanges();
+                }
+                var kayitliItems = _context.ChartRadarItems.Where(a => a.ChartRadarHeaderId == header.Id).ToList();
+                _context.ChartRadarItems.RemoveRange(kayitliItems);
+                _context.SaveChanges();
+
+                foreach (var item in items)
+                {
+                    item.RenkKodu = "";
+                    item.ChartRadarHeaderId = header.Id;
+                    item.Id = 0;
+
+                }
+
+                _context.ChartRadarItems.AddRange(items);
+                _context.SaveChanges();
+
+
+            }
+            return new JsonResult(new { state, message })
+            {
+                StatusCode = StatusCodes.Status200OK // 
+            };
+        }
+
+        public IActionResult ChartHeaderSil(int id)
+        {
+            var header = _context.ChartRadarHeaders.Find(id);
+            var kayitliItems = _context.ChartRadarItems.Where(a => a.ChartRadarHeaderId == header.Id).ToList();
+            _context.ChartRadarHeaders.Remove(header);
+            _context.SaveChanges();
+            _context.ChartRadarItems.RemoveRange(kayitliItems);
+            _context.SaveChanges();
+
+            var state = 1;
+            var message = "Bilgileri Eksiksiz Giriniz";
+
+            return new JsonResult(new { state, message })
+            {
+                StatusCode = StatusCodes.Status200OK // 
+            };
+        }
+        #endregion
     }
 }

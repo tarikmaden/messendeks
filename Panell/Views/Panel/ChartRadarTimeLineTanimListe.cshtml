@@ -1,0 +1,198 @@
+﻿@model Panell.Models.ChartModel
+@{
+    ViewData["Title"] = "Chart Yönetimi";
+    Layout = "~/Views/Shared/PanelLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Chart Yönetimi</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active">Chart Yönetimi</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content bg-white">
+
+        <div class="row">
+            <div class="col-12">
+                <a href="javascript:" onclick="kayitEkleDuzenle(0)" class="btn btn-success my-2">
+                    <i class="fas fa-plus"></i> Yeni Kayıt
+                </a>
+            </div>
+            <div class="col-12 mx-2">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Grup Adı</th>
+                            <th>Renk</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.ChartRadarHeaders.Count; i++)
+                        {
+                            var item = Model.ChartRadarHeaders[i];
+
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td style="background-color:@item.RenkKodu">@item.ChartRadarHeaderAdi</td>
+                                
+                                <td>
+                                    <div class="btn-group w-100">
+                                          <a href="javascript:" onclick="kayitEkleDuzenle(@item.Id)" class="btn btn-warning ">
+                    <i class="fas fa-edit"></i> Düzenle
+                </a>
+                                        <a href="javascript:" onclick="kayitSil(@item.Id)" class="btn btn-danger ">
+                                            <i class="fas fa-trash-alt"></i> Sil
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+
+
+<div class="modal fade" id="modal" style="display: none;" aria-hidden="true" role="document">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Chart Detay</h4>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div id="modal-summary">
+                </div>
+            </div>
+
+            <div class="modal-footer ">
+                <button type="button" class="btn  btn-danger" data-dismiss="modal">KAPAT</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section Scripts{
+
+    <script>
+
+        function kayitEkleDuzenle(id) {
+            console.log(id);
+            var url = "/Panel/ChartHeaderEkleDuzenle/" + id;
+            $.get(url,
+                function (data) {
+                    var alan = $("#modal-summary");
+                    alan.empty();
+                    alan.append(data);
+                    $("#modal").modal('show');
+
+
+
+
+                });
+        }
+
+
+       
+    </script>
+
+    <script>
+
+   
+
+        function frmSerialize() {
+            var url = "/Panel/ChartHeaderEkleDuzenleKaydet/";
+            var data = $("#frm-serialize").serialize();
+              console.log(data);
+
+         
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                success: function (result) {
+
+                  if  (result.state==0){
+
+                       alert(result.message);
+                  }else{
+                       window.location.reload();
+                  }
+                },
+                error: function () {
+                    alert("Errror");
+                }
+            });
+
+        }
+    </script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function kayitSil(id) {
+            
+
+            if (id != 0) {
+                Swal.fire({
+                    title: 'Silmek istediğinize emin misiniz ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sil!',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+
+                    if (result.value) {
+                        var url = "/Panel/ChartHeaderSil/" + id;
+                     
+                        $.get(url,
+                            function (data) {
+                                if (data.state == 1) {
+
+                                    window.location.reload();
+                                } else {
+                                    Swal.fire({
+                                        icon: "warning",
+                                        title: result.message
+
+                                    });
+                                }
+
+                            });
+
+                    }
+                });
+            }
+
+        }
+    </script>
+}

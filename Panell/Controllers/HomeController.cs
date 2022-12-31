@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Panell.Entities;
 using Panell.Models;
 using System.Diagnostics;
 
@@ -157,6 +158,49 @@ namespace Panell.Controllers
             // chart Items
             ViewBag.cartlar = _context.Dsayfalar.ToList();
             return View();
+        }
+
+
+        public IActionResult ChartDetayGetir()
+        {
+
+
+
+
+            var drops = new List<DropItem>();
+            var renkKods = new List<string>();
+            var headers = _context.ChartRadarHeaders.ToList();
+
+            foreach (var header in headers)
+            {
+                var items = _context.ChartRadarItems.Where(a => a.ChartRadarHeaderId == header.Id).ToList();
+
+                var drop = new DropItem
+                {
+                    Tanim = header.ChartRadarHeaderAdi,
+                    DigerTanim = header.RenkKodu
+                };
+
+                foreach (var item in items)
+                {
+                    drop.ItemValues.Add(new ItemValue
+                    {
+                        Text = item.ChartRadarItemAdi,
+                        IdInt = item.Deger1,
+                        IdInt2 = item.Deger2
+                    });
+
+                }
+                renkKods.Add(header.RenkKodu);
+                drops.Add(drop);
+            }
+
+            return new JsonResult(new { data = drops, renkKods })
+            {
+                StatusCode = StatusCodes.Status200OK // 
+            };
+
+
         }
     }
 }

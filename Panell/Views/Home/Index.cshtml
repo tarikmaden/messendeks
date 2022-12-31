@@ -1,52 +1,55 @@
 ﻿@{
-    ViewData["Title"] =  ViewBag.seo.sayfa_title;
-    ViewData["Desc"] =  ViewBag.seo.sayfa_desc;
+    ViewData["Title"] = ViewBag.seo.sayfa_title;
+    ViewData["Desc"] = ViewBag.seo.sayfa_desc;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <nav class="me-navbar">
-	<div class="container-fluid p-0">
-		<div class="row g-0">
-			<div class="col-6">
-				<ul class="nav-links left">
-					<li class="logo">
-						<a href="../">
-							<img src="~/uploads/@ViewBag.Iletisim.logo" alt="logo" class="img-logo" />
-						</a>
-					</li>
-					@foreach (var item in ViewBag.sayfalistesi)
-					{
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-6">
+                <ul class="nav-links left">
+                    <li class="logo">
+                        <a href="../">
+                            <img src="~/uploads/@ViewBag.Iletisim.logo" alt="logo" class="img-logo" />
+                        </a>
+                    </li>
+                    @foreach (var item in ViewBag.sayfalistesi)
+                    {
                         if (@item.ID != 1)
                         {
-						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+                            <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
                         }
-					}
+                    }
                     <li><a href="/iletisim" class="link">İletişim</a></li>
-				</ul>
-			</div>
+                </ul>
+            </div>
 
-			<div class="col-6">
-				<ul class="nav-links right">
-					<li><a href="yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
-					<li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
-					<li>
-						<a href="javascript:void(0)" id="jsSearchOpen" class="link search"><img
-								src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
-					</li>
-				</ul>
-				<ul class="nav-links right mobile">
-					<li>
-						<a href="javascript:void(0)" id="jsSearchOpen2" class="link search"><img
-								src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search"><img
-								src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" /></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+            <div class="col-6">
+                <ul class="nav-links right">
+                    <li><a href="yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
+                    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-links right mobile">
+                    <li>
+                        <a href="javascript:void(0)" id="jsSearchOpen2" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>
 
 @Html.Partial("Head")
@@ -97,7 +100,8 @@
                     <p>
                         @Html.Raw(ViewBag.analiz.sayfa_icerik)
                     </p>
-                    <a href="#" class="btn btn-primary">Sonuçları İncele 
+                    <a href="#" class="btn btn-primary">
+                        Sonuçları İncele
                         <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="right" class="img-right" />
                     </a>
                 </div>
@@ -149,8 +153,8 @@
                         <img src="~/site_assets/assets/img/arastirma-text.svg" alt="araştırma" class="img-text" />
                         <h2 class="title">
                             <span>
-                                <span style="display: inline;" class="fw-bold">MESS</span> 
-                            @ViewBag.yatirimci.sayfa_adi
+                                <span style="display: inline;" class="fw-bold">MESS</span>
+                                @ViewBag.yatirimci.sayfa_adi
                             </span>
                             <!-- Araştırması Raporu -->
                         </h2>
@@ -189,14 +193,16 @@
                             <div class="me-section-content">
                                 <img src="~/site_assets/assets/img/sanayici-gorusu-text.svg" alt="analiz" class="img-text" />
                                 <h2 class="title">
-                                    <span>@Html.Raw(@ViewBag.endeksi.sayfa_adi)</span> Endeksi 
+                                    <span>@Html.Raw(@ViewBag.endeksi.sayfa_adi)</span> Endeksi
                                     <span class="alt">(Yakında)</span>
                                 </h2>
                                 <p>
                                     @Html.Raw(@ViewBag.endeksi.sayfa_ozet)
                                 </p>
-                                <a href="#" class="link">Daha Fazla 
-                                    <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                                <a href="#" class="link">
+                                    Daha Fazla
+                                    <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -223,7 +229,8 @@
                                 <div class="me-shortcut orange">
                                     <img src="~/site_assets/assets/img/sh1.jpg" alt="shortcut" class="img-aspect" />
                                     <div class="content">
-                                        <h2 class="title">Sanayicinin Nabzı Endeksi 
+                                        <h2 class="title">
+                                            Sanayicinin Nabzı Endeksi
                                             <span class="alt">(Yakında)</span>
                                         </h2>
                                         <span class="icon"><img src="~/site_assets/assets/img/icons/arrow-right-white-sh.svg" alt="arrow" /></span>
@@ -237,3 +244,9 @@
         </div>
     </div>
 </section>
+
+
+@section Scripts{
+    <script src="~/site_assets/assets/dsm/chart.js"></script>
+
+}
