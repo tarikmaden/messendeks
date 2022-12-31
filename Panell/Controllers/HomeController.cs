@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Org.BouncyCastle.Asn1.Cms;
 using Panell.Entities;
 using Panell.Models;
 using System.Diagnostics;
@@ -25,6 +26,8 @@ namespace Panell.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var timeSpan = DateTime.Now;
+            ViewBag.time = string.Format("{0}-{1}-{2}", timeSpan.Hour, timeSpan.Minute, timeSpan.Second);
             ViewBag.seo = _context.Sayfalar.Find(1);
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.slider = _context.Sayfalar.Where(x => x.sayfa_kategori == 10.ToString()).ToList();
