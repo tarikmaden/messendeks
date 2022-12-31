@@ -1,4 +1,11 @@
-﻿<nav class="me-navbar me-navbar-page with-dark-right">
+﻿@{
+    ViewData["Title"] =  ViewBag.detay.sayfa_title;
+    ViewData["Desc"] =  ViewBag.detay.sayfa_desc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<nav class="me-navbar me-navbar-page with-dark-right">
     <div class="container-fluid p-0">
 		<div class="row g-0">
 			<div class="col-6">

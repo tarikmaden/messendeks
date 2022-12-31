@@ -1,4 +1,10 @@
-﻿@Html.Partial("Menu")
+﻿@{
+    ViewData["Title"] =  ViewBag.KurumsalPage.sayfa_title;
+	ViewData["Desc"] =  ViewBag.KurumsalPage.sayfa_desc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("Menu")
 
 @Html.Partial("Head")
 
@@ -18,7 +24,7 @@
 	<div class="container">
 		<div class="page-head-content">
 			<h1 class="title">
-				@ViewBag.KurumsalPage.sayfa_desc
+				@ViewBag.KurumsalPage.sayfa_adi
 			</h1>
 			<ul class="me-breadcrumb">
 				<li><a href="../">Ana Sayfa</a></li>

@@ -24,6 +24,7 @@ namespace Panell.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.seo = _context.Sayfalar.Find(1);
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.slider = _context.Sayfalar.Where(x => x.sayfa_kategori == 10.ToString()).ToList();
             ViewBag.footer_year = DateTime.Now.Year.ToString();
@@ -53,6 +54,7 @@ namespace Panell.Controllers
             ViewBag.KurumsalListe = _context.Sayfalar.Where(x => x.sayfa_kategori == 2.ToString()).ToList();
             ViewBag.footer_year = DateTime.Now.Year.ToString();
             ViewBag.KurumsalPage = _context.Sayfalar.Find(2);
+            ViewBag.seo = _context.Sayfalar.Find(3);
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             ViewBag.pageSize = pageSize;
@@ -74,6 +76,7 @@ namespace Panell.Controllers
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             ViewBag.yatirimci = _context.Sayfalar.Find(8);
+            ViewBag.yatirimci_text = _context.Sayfalar.Find(16);
             ViewBag.yatirimci_listesi = _context.Dsayfalar.Where(x => Convert.ToInt32(x.sayfa_kategori) == 8).ToList();
             return View();
         }

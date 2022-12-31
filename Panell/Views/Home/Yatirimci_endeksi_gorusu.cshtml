@@ -1,3 +1,9 @@
+@{
+    ViewData["Title"] =  ViewBag.yatirimci.sayfa_title;
+    ViewData["Desc"] =  ViewBag.yatirimci.sayfa_desc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @Html.Partial("Menu")
 
 @Html.Partial("Head")
@@ -164,10 +170,9 @@
                                 <div class="col-md-6 col-lg-5 order-sm-2 order-md-1 order-1">
                                     <div class="me-section-content">
                                         <img src="~/site_assets/assets/img/analiz-text.svg" alt="analiz" class="img-text" />
-                                        <h2 class="title"><span>MESS Yatırımcı</span> Görüşü Endeksi</h2>
+                                        <h2 class="title"><span>MESS Yatırımcı</span> @ViewBag.yatirimci_text.sayfa_adi</h2>
                                         <p>
-                                            Yıllık bazda hesaplanan MESS Yatırımcı Görüşü Endeksi ile Türkiye pazarını, sanayi yatırımcısının bakış açısıyla değerlendirip, yatırım ortamının performansının takibini sağlamayı amaçlıyoruz.
-                                            Uzun yıllardır “Kearney Global FDI Confidence Index” olarak bu alanda referans kabul edilen çalışmadan temellenen bu endeks, 15 alt başlıkta yatırımcı ortamının nabzını tutacaktır.
+                                            @Html.Raw(ViewBag.yatirimci_text.sayfa_icerik)
                                         </p>
                                     </div>
                                 </div>
