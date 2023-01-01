@@ -433,6 +433,9 @@ namespace Panell.Controllers
         [HttpGet]
         public IActionResult Sayfa(int ID, Dsayfalar Dsayfa)
         {
+
+            ViewBag.developDelete = 0;
+
             ViewBag.yatirimci_alt = _context.Dsayfalar.ToList();
             ViewBag.dillistesiKontrol = _context.Diller.Count();
             ViewBag.dillistesi = _context.Diller.ToList();
@@ -440,6 +443,8 @@ namespace Panell.Controllers
             ViewBag.sayfalistesi = _context.Sayfalar.ToList();
             ViewBag.galerilistesi = _context.Galeri.Where(x => x.gelen_id == ID.ToString()).ToList();
             var guncellenecekSayfa = _context.Sayfalar.Find(ID);
+
+            ViewBag.tabpanel = _context.Sayfalar.Where(x => Convert.ToInt32(x.sayfa_kategori) == 8).ToList();
 
             return View(guncellenecekSayfa);
 
@@ -453,7 +458,7 @@ namespace Panell.Controllers
             Sayfalar updatesayfa = _context.Sayfalar.Find(Sayfa.ID);
 
             if (Sayfa.Dosya != null)
-            {         
+            {
                 var dosya_yolu = Path.Combine(_hostEnvironment.WebRootPath, "uploads");
                 if (!Directory.Exists(dosya_yolu))
                 {
@@ -550,9 +555,52 @@ namespace Panell.Controllers
                 _context.SaveChanges();
                 return Redirect(Request.Headers["Referer"].ToString());
             }
+        }
 
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Tab_liste_guncel(Sayfalar Sayfa)
+        {
+            Sayfalar update = _context.Sayfalar.Find(Sayfa.ID);
 
+            if (Sayfa.Dosya != null)
+            {
+                var dosya_yolu = Path.Combine(_hostEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(dosya_yolu))
+                {
+                    Directory.CreateDirectory(dosya_yolu);
+                }
+                var filename = $"{DateTime.Now:MMddHHmmss}.{Sayfa.Dosya.FileName.Split('.').Last()}";
+                var tamDosyaAdi = Path.Combine(dosya_yolu, filename);
+                using (var dosyaAkisi = new FileStream(tamDosyaAdi, FileMode.Create))
+                {
+                    await Sayfa.Dosya.CopyToAsync(dosyaAkisi);
+                }
+                update.sayfa_resim = filename;
+            }
 
+            if (Sayfa.Dosya2 != null)
+            {
+
+                var dosya_yolu2 = Path.Combine(_hostEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(dosya_yolu2))
+                {
+                    Directory.CreateDirectory(dosya_yolu2);
+                }
+                var filename2 = $"{DateTime.Now:MMddHHmmss}.{Sayfa.Dosya2.FileName.Split('.').Last()}";
+                var tamDosyaAdi2 = Path.Combine(dosya_yolu2, filename2);
+                using (var dosyaAkisi2 = new FileStream(tamDosyaAdi2, FileMode.Create))
+                {
+                    await Sayfa.Dosya2.CopyToAsync(dosyaAkisi2);
+                }
+                update.sayfa_resimm = filename2;
+            }
+            update.sayfa_order = Sayfa.sayfa_order;
+            update.sayfa_adi = Sayfa.sayfa_adi;
+            update.sayfa_ozet = Sayfa.sayfa_ozet;
+            _context.SaveChanges();
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
         [HttpPost]

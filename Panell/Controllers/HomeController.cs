@@ -36,8 +36,12 @@ namespace Panell.Controllers
             ViewBag.analiz = _context.Sayfalar.Find(14);
             ViewBag.yatirimci = _context.Sayfalar.Find(16);
             ViewBag.endeksi = _context.Sayfalar.Find(17);
-            // chart Items
-            ViewBag.cartlar = _context.Dsayfalar.ToList();
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+
+
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
@@ -48,11 +52,15 @@ namespace Panell.Controllers
             ViewBag.footer_year = DateTime.Now.Year.ToString();
             ViewBag.KurumsalPage = _context.Sayfalar.Find(2);
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
         [HttpGet]
-        public IActionResult Haberler(int ID , int page = 1, int pageSize = 5)
+        public IActionResult Haberler(int ID, int page = 1, int pageSize = 5)
         {
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.KurumsalListe = _context.Sayfalar.Where(x => x.sayfa_kategori == 2.ToString()).ToList();
@@ -65,6 +73,10 @@ namespace Panell.Controllers
             ViewBag.PageNumber = page;
             var sayfalar = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString());
             ViewBag.totalCount = sayfalar.Count();
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
@@ -73,6 +85,10 @@ namespace Panell.Controllers
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             ViewBag.temsilci = _context.Temsilci.ToList();
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
         public IActionResult Yatirimci_endeksi_gorusu()
@@ -80,14 +96,27 @@ namespace Panell.Controllers
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
             ViewBag.yatirimci = _context.Sayfalar.Find(8);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
             ViewBag.yatirimci_text = _context.Sayfalar.Find(16);
             ViewBag.yatirimci_listesi = _context.Dsayfalar.Where(x => Convert.ToInt32(x.sayfa_kategori) == 8).ToList();
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
+            ViewBag.profil = _context.Dsayfalar.Find(4);
+            ViewBag.girdiler = _context.Dsayfalar.Find(5);
+            ViewBag.tabpanel = _context.Sayfalar.Find(37);
+            ViewBag.tabpanel2 = _context.Sayfalar.Find(38);
+            ViewBag.tabpanel3 = _context.Sayfalar.Find(39);
             return View();
         }
         public IActionResult Yapim_asamasinda()
         {
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
@@ -105,7 +134,7 @@ namespace Panell.Controllers
             TempData["iletisim_success"] = "success";
             return RedirectToAction("iletisim", TempData);
         }
-        
+
 
         public IActionResult Haber(int ID)
         {
@@ -113,10 +142,26 @@ namespace Panell.Controllers
             ViewBag.Detay = _context.Sayfalar.Find(ID);
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
-        
-        public IActionResult Arama_sonuclari(string search , int page = 1, int pageSize = 5)
+        public IActionResult Sayfa(int ID)
+        {
+            ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).ToList();
+            ViewBag.Detay = _context.Sayfalar.Find(ID);
+            ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
+            ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
+            return View();
+        }
+
+        public IActionResult Arama_sonuclari(string search, int page = 1, int pageSize = 5)
         {
             ViewBag.search = search.ToString();
             ViewBag.Haberler = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString()).ToList();
@@ -124,11 +169,15 @@ namespace Panell.Controllers
             ViewBag.DetayCount = _context.Sayfalar.Where(c => Convert.ToInt32(c.sayfa_kategori) == 3).Where(c => c.sayfa_adi.StartsWith(search)).Count();
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
 
             ViewBag.pageSize = pageSize;
             ViewBag.PageNumber = page;
             var sayfalar = _context.Sayfalar.Where(x => x.sayfa_kategori == 3.ToString());
             ViewBag.totalCount = sayfalar.Count();
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
@@ -139,12 +188,27 @@ namespace Panell.Controllers
             ViewBag.Detay = _context.Sayfalar.Where(x => x.sayfa_slug == ID).First();
             ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
             ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            ViewBag.sayfalistesi = _context.Sayfalar.Where(x => x.sayfa_kategori == null).OrderBy(x => x.ID).Take(3).ToList();
+            ViewBag.slider = _context.Sayfalar.Where(x => x.sayfa_kategori == 10.ToString()).ToList();
+            ViewBag.footer_year = DateTime.Now.Year.ToString();
+            ViewBag.Iletisim = _context.Iletisim.Find(1);
+            ViewBag.analiz = _context.Sayfalar.Find(14);
+            ViewBag.yatirimci = _context.Sayfalar.Find(16);
+            ViewBag.endeksi = _context.Sayfalar.Find(17);
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
             // return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
@@ -158,18 +222,16 @@ namespace Panell.Controllers
             ViewBag.analiz = _context.Sayfalar.Find(14);
             ViewBag.yatirimci = _context.Sayfalar.Find(16);
             ViewBag.endeksi = _context.Sayfalar.Find(17);
-            // chart Items
-            ViewBag.cartlar = _context.Dsayfalar.ToList();
+            ViewBag.yatirimci_gorusu_endeksi = _context.Sayfalar.Find(8);
+            ViewBag.sartlar_ve_kosullar = _context.Sayfalar.Find(6);
+            ViewBag.gizlilik_politikasi = _context.Sayfalar.Find(7);
+            ViewBag.cerez_politikasi = _context.Sayfalar.Find(36);
             return View();
         }
 
 
         public IActionResult ChartDetayGetir()
         {
-
-
-
-
             var drops = new List<DropItem>();
             var renkKods = new List<string>();
             var headers = _context.ChartRadarHeaders.ToList();
@@ -202,8 +264,6 @@ namespace Panell.Controllers
             {
                 StatusCode = StatusCodes.Status200OK // 
             };
-
-
         }
     }
 }

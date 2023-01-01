@@ -99,6 +99,11 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "Haber" });
 
 app.MapControllerRoute(
+    name: "Sayfa",
+    pattern: "sayfa/{id}",
+    defaults: new { controller = "Home", action = "Sayfa" });
+
+app.MapControllerRoute(
     name: "Arama_sonuclari",
     pattern: "arama-sonuclari",
     defaults: new { controller = "Home", action = "Arama_sonuclari"});

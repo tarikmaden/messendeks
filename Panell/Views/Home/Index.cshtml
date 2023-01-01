@@ -27,7 +27,7 @@
 
             <div class="col-6">
                 <ul class="nav-links right">
-                    <li><a href="yatirimci-gorusu-endeksi" class="link">Yatırımcı Görüşü Endeksi</a></li>
+                    <li><a href="yatirimci-gorusu-endeksi" class="link">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
                     <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
                     <li>
                         <a href="javascript:void(0)" id="jsSearchOpen" class="link search">
@@ -92,9 +92,12 @@
         <div class="row align-items-center">
             <div class="col-md-6 col-lg-5 order-sm-2 order-md-1 order-1">
                 <div class="me-section-content">
-                    <img src="~/site_assets/assets/img/analiz-text.svg" alt="analiz" class="img-text" />
+                    @if (@ViewBag.analiz.sayfa_resimm != null)
+                    {
+                        <img src="/uploads/@ViewBag.analiz.sayfa_resimm" alt="@ViewBag.analiz.sayfa_adi" class="img-text" /> 
+                    }
                     <h2 class="title">
-                        <span style="color: #feab45;">MESS Yatırımcı</span>
+                        <span style="color: #feab45;">@ViewBag.analiz.sayfa_order</span>
                         @ViewBag.analiz.sayfa_adi
                     </h2>
                     <p>
@@ -150,10 +153,13 @@
             <div class="box">
                 <div class="normal">
                     <div class="me-section-content text-end">
-                        <img src="~/site_assets/assets/img/arastirma-text.svg" alt="araştırma" class="img-text" />
+                        @if (@ViewBag.yatirimci.sayfa_resimm != null)
+                        {
+                            <img src="/uploads/@ViewBag.yatirimci.sayfa_resimm" alt="@ViewBag.yatirimci.sayfa_adi" class="img-text" />                      
+                        }
                         <h2 class="title">
                             <span>
-                                <span style="display: inline;" class="fw-bold">MESS</span>
+                                <span style="display: inline;" class="fw-bold">@ViewBag.yatirimci.sayfa_order</span>
                                 @ViewBag.yatirimci.sayfa_adi
                             </span>
                             <!-- Araştırması Raporu -->
@@ -186,14 +192,17 @@
                 <div class="container-fluid p-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-lg-6">
+                        @if (@ViewBag.endeksi.sayfa_resim != null)
+                        {
                             <img src="/uploads/@ViewBag.endeksi.sayfa_resim" alt="@ViewBag.endeksi.sayfa_adi" class="img" />
+                        }
                         </div>
 
                         <div class="col-lg-6">
                             <div class="me-section-content">
                                 <img src="~/site_assets/assets/img/sanayici-gorusu-text.svg" alt="analiz" class="img-text" />
                                 <h2 class="title">
-                                    <span>@Html.Raw(@ViewBag.endeksi.sayfa_adi)</span> Endeksi
+                                    <span>@ViewBag.endeksi.sayfa_adi</span> Endeksi
                                     <span class="alt">(Yakında)</span>
                                 </h2>
                                 <p>
@@ -217,7 +226,7 @@
                                 <div class="me-shortcut">
                                     <img src="~/site_assets/assets/img/sh1.jpg" alt="shortcut" class="img-aspect" />
                                     <div class="content">
-                                        <h2 class="title">Yatırımcı Görüşü Endeksi</h2>
+                                        <h2 class="title">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</h2>
                                         <span class="icon"><img src="~/site_assets/assets/img/icons/arrow-right-white-sh.svg" alt="arrow" /></span>
                                     </div>
                                 </div>

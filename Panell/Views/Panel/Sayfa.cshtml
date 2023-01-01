@@ -23,96 +23,227 @@
         </div><!-- /.container-fluid -->
     </section>
 
-    @if (@Model.ID != 10)
+    @if (@Model.ID != 10 && @Model.ID != 1)
     {
-    <section class="content">
-        <form asp-action="Sayfa_guncel" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Genel </h3>
+        <section class="content">
+            <form asp-action="Sayfa_guncel" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Genel </h3>
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <input type="hidden" name="ID" asp-for="@Model.ID" id="inputName" class="form-control">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputName">Sayfa Adı</label>
-                                <input type="text" name="sayfa_adi" asp-for="@Model.sayfa_adi" id="inputName"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa Özet</label>
-                                <textarea asp-for="@Model.sayfa_ozet" name="sayfa_ozet"
-                                    id="editor.@Model.ID" rows="10" style="width:100%;"></textarea>
-                            </div>
-                            <script type="text/javascript">
-                                CKEDITOR.replace('editor.@Model.ID');
-                            </script>
-                            <div class="form-group">
-                                <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa İçerik</label>
-                                <textarea asp-for="@Model.sayfa_icerik" name="sayfa_icerik"
-                                    id="editor.@Model.ID@Model.ID" rows="10" style="width:100%;"></textarea>
-                            </div>
-                            <script type="text/javascript">
-                                CKEDITOR.replace('editor.@Model.ID@Model.ID');
-                            </script>
-                            <div class="form-group">
-                                <img class="img-fluid" src="/uploads/@Model.sayfa_resim" /> <br />
-                                <label for="inputDescription">Sayfa Resim</label>
-                                <input type="file" name="dosya" id="inputName" class="form-control">
-                            </div>
-                            @if (@Model.ID != 8)
-                            {
+                            <input type="hidden" name="ID" asp-for="@Model.ID" id="inputName" class="form-control">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="inputName">Span (başlık)</label>
+                                    <input type="text" name="sayfa_order" asp-for="@Model.sayfa_order" id="inputName"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName">Sayfa Adı</label>
+                                    <input type="text" name="sayfa_adi" asp-for="@Model.sayfa_adi" id="inputName"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa Özet</label>
+                                    <textarea asp-for="@Model.sayfa_ozet" name="sayfa_ozet"
+                                        id="editor.@Model.ID" rows="10" style="width:100%;"></textarea>
+                                </div>
+                                <script type="text/javascript">
+                                    CKEDITOR.replace('editor.@Model.ID');
+                                </script>
+                                <div class="form-group">
+                                    <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa İçerik</label>
+                                    <textarea asp-for="@Model.sayfa_icerik" name="sayfa_icerik"
+                                        id="editor.@Model.ID@Model.ID" rows="10" style="width:100%;"></textarea>
+                                </div>
+                                <script type="text/javascript">
+                                    CKEDITOR.replace('editor.@Model.ID@Model.ID');
+                                </script>
+                                <div class="form-group">
+                                    <img class="img-fluid" src="/uploads/@Model.sayfa_resim" /> <br />
+                                    <label for="inputDescription">Sayfa Resim</label>
+                                    <input type="file" name="dosya" id="inputName" class="form-control">
+                                </div>
                                 <div class="form-group">
                                     <img class="img-fluid" src="/uploads/@Model.sayfa_resimm" /> <br />
                                     <label for="inputDescription">Sayfa Resim (EK)</label>
                                     <input type="file" name="dosya2" id="inputName" class="form-control">
                                 </div>
-                            }
-                            <div class="form-group">
-                                <label for="inputName">Sayfa Title</label>
-                                <input type="text" name="sayfa_title" asp-for="@Model.sayfa_title" id="inputName"
-                                    class="form-control">
+                                <div class="form-group">
+                                    <label for="inputName">Sayfa Title</label>
+                                    <input type="text" name="sayfa_title" asp-for="@Model.sayfa_title" id="inputName"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName">Sayfa Desc</label>
+                                    <input type="text" name="sayfa_desc" asp-for="@Model.sayfa_desc" id="inputName"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-secondary">Vazgeç</a>
+                                    <input type="submit" value="Güncelle" class="btn btn-success">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inputName">Sayfa Desc</label>
-                                <input type="text" name="sayfa_desc" asp-for="@Model.sayfa_desc" id="inputName"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputName">Sayfa Sıralaması</label>
-                                <input type="text" name="sayfa_order" asp-for="@Model.sayfa_order" id="inputName"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <a href="#" class="btn btn-secondary">Vazgeç</a>
-                                <input type="submit" value="Güncelle" class="btn btn-success">
-                            </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </section>
+            </form>
+        </section>
     }
-
 
     @if (@Model.ID == 8)
     {
+        @foreach (var itemAlt in ViewBag.yatirimci_alt as List<Dsayfalar>)
+        {
+            @if (@itemAlt.ID == 4)
+            {
+                <section class="content">
+                    <form asp-action="yatirimci_liste_guncel" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Profil</h3>
+
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Resim</label> <br />
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                        <input type="file" name="Dosya" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Ad Soyad</label>
+                                                        <input type="text" name="sayfa_adi" value="@itemAlt.sayfa_adi" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Unvan</label>
+                                                        <input type="text" name="sayfa_ozet" value="@itemAlt.sayfa_ozet" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Düzenle</label><br />
+                                                        <input type="submit" value="Güncelle" class="btn btn-success" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            }
+            @if (@itemAlt.ID == 5)
+            {
+                <section class="content">
+                    <form asp-action="yatirimci_liste_guncel" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Başlık</h3>
+
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Başlık</label>
+                                                        <input type="text" name="sayfa_adi" value="@itemAlt.sayfa_adi" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Span</label>
+                                                        <input type="text" name="sayfa_ozet" value="@itemAlt.sayfa_ozet" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Resim</label> <br />
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                        <input type="file" name="Dosya" id="inputName" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Düzenle</label><br />
+                                                        <input type="submit" value="Güncelle" class="btn btn-success" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            }
+        }
 
         <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card card-primary">
-                                <form asp-action="Yatirimci_alt_kategori" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="sayfa_kategori" value="@Model.ID" id="inputName" class="form-control" />
+            <form asp-action="Yatirimci_alt_kategori" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Oluştur</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="sayfa_kategori" value="@Model.ID" id="inputName" class="form-control" />
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="card-body">
@@ -144,198 +275,447 @@
                                             <input type="submit" value="Oluştur" class="btn btn-success float-right" />
                                         </div>
                                     </div>
-                                </form>
+                                    <hr>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
 
-                                @foreach (var itemAlt in ViewBag.yatirimci_alt as List<Dsayfalar>)
-                                {
-                                    @if (@itemAlt.sayfa_kategori == @Model.ID.ToString())
-                                    {
-                                        <form asp-action="yatirimci_liste_guncel" method="post" enctype="multipart/form-data">
-                                            <input type="hidden" name="ID" value="@itemAlt.ID" />
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="card-body">
-                                                        <div class="form-group">
-                                                            <label for="inputName">Başlık</label>
-                                                            <input type="text" name="sayfa_adi" value="@itemAlt.sayfa_adi" id="inputName" class="form-control" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="card-body">
-                                                        <div class="form-group">
-                                                            <label for="inputName">İçerik</label>
-                                                            <input type="text" name="sayfa_ozet" value="@itemAlt.sayfa_ozet" id="inputName" class="form-control" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="card-body">
-                                                        <div class="form-group">
-                                                            <label for="inputName">İcon</label>
-                                                            <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
-                                                            <input type="file" name="Dosya" id="inputName" class="form-control" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="card-body">
-                                                        <div class="form-group">
-                                                            <label for="inputName">Düzenle</label><br />
-                                                            <input type="submit" value="Düzenle" class="btn btn-success" />
-                                                            <a asp-action="Yatirimci_alt_sil" asp-route-id="@itemAlt.ID" class="btn btn-danger btn-sm">
-                                                                <i class="fas fa-trash"></i>
-                                                                Sil
-                                                            </a>
-                                                        </div>
-                                                    </div>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        @foreach (var itemAlt in ViewBag.yatirimci_alt as List<Dsayfalar>)
+                        {
+                            @if (@itemAlt.sayfa_kategori == @Model.ID.ToString())
+                            {
+                                <form asp-action="yatirimci_liste_guncel" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="inputName">Başlık</label>
+                                                    <input type="text" name="sayfa_adi" value="@itemAlt.sayfa_adi" id="inputName" class="form-control" />
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="inputName">İçerik</label>
+                                                    <input type="text" name="sayfa_ozet" value="@itemAlt.sayfa_ozet" id="inputName" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="inputName">İcon</label>
+                                                    <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                    <input type="file" name="Dosya" id="inputName" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="inputName">Düzenle</label><br />
+                                                    <input type="submit" value="Düzenle" class="btn btn-success" />
 
-                                    }
-                                }
-                            </div>
-                        </div>
-                    </div>
-        </section>
-    }
-
-    
-
-    @if (@Model.sayfa_kategori != 10.ToString() && @Model.ID != 8)
-    {
-   
-    <section class="content">
-        <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            @if (@Model.ID == 10)
-                            {
-                                
-                                <h3 class="card-title">Slider Oluştur</h3>
-                            }
-                            else
-                            {
-                                <h3 class="card-title">@Model.sayfa_adi /alt sayfa oluştur</h3>
-                            }
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <input type="hidden" name="sayfa_kategori" asp-for="@Model.ID" id="inputName"
-                            class="form-control">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputName">Sayfa Adı</label>
-                                <input type="text" name="sayfa_adi" id="inputName" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <a href="#" class="btn btn-secondary">Vazgeç</a>
-                                <input type="submit" value="Ekle" class="btn btn-success">
-                            </div>
-                        </div>
-                      
-                    </div>
-                   
-                </div>
-            </div>
-        </form>
-    </section>
-
-    <section class="content">
-        <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            @if (@Model.ID == 10)
-                            {
-                                
-                                <h3 class="card-title">Slider</h3>
-                            }
-                            else
-                            {
-                                <h3 class="card-title">Alt kategoriler</h3>
-                            }
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <table class="table table-striped projects">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 1%">
-                                            ID
-                                        </th>
-                                        <th>
-                                            Sayfa Adı
-                                        </th>
-                                        <th>
-                                            Sayfa URL
-                                        </th>
-                                        <th>
-                                            Sayfa Tarih
-                                        </th>
-                                        <th>
-                                            İşlemler
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    @foreach (var item in ViewBag.sayfalistesi as List<Sayfalar>)
-                                    {
-                                        @if (@item.sayfa_kategori == Model.ID.ToString())
-                                        {
-                                            <tr>
-                                                <td>
-                                                    @item.ID
-                                                </td>
-                                                <td>
-                                                    @item.sayfa_adi
-                                                </td>
-                                                <td>
-                                                    @item.sayfa_slug
-                                                </td>
-                                                <td>
-                                                    @item.sayfa_tarih
-                                                </td>
-
-                                                <td class="project-actions text-left">
-                                                    <a class="btn btn-info btn-sm" asp-action="Sayfa" asp-route-id="@item.ID">
-                                                        <i class="fas fa-pencil-alt">
-                                                        </i>
-                                                        Düzenle
-                                                    </a>
-                                                    <a asp-action="Sayfa_sil" asp-route-id="@item.ID"
-                                                class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash">
-                                                        </i>
+                                                    <a asp-action="Yatirimci_alt_sil" asp-route-id="@itemAlt.ID" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
                                                         Sil
                                                     </a>
-                                                </td>
-
-                                            </tr>
-                                        }
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                        
+                            }
+                        }
                     </div>
-                    
                 </div>
-            </div>
-        </form>
-    </section>
+            </div>                                            
+        </section>
+
+        // tab panel
+        <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">3 Alan</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Yatırımcının Odak Noktaları</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Yatırım Ortamının Güçlü Yanları</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Yatırım Ortamının Gelişime Açık Yanları</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                @foreach (var itemAlt in ViewBag.tabpanel as List<Sayfalar>)
+                                {
+                                    @if (@itemAlt.ID == 37)
+                                    {
+                                        <section class="content">
+                                            <form asp-action="Tab_liste_guncel" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Span (başlık)</label>
+                                                        <input type="text" name="sayfa_order" asp-for="@itemAlt.sayfa_order" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputName">Sayfa Adı</label>
+                                                        <input type="text" name="sayfa_adi" asp-for="@itemAlt.sayfa_adi" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa Özet</label>
+                                                        <textarea asp-for="@itemAlt.sayfa_ozet" name="sayfa_ozet"
+                                                            id="editor.@itemAlt.ID" rows="10" style="width:100%;"></textarea>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID');
+                                                    </script>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID@itemAlt.ID');
+                                                    </script>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim</label>
+                                                        <input type="file" name="dosya" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resimm" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim (EK)</label>
+                                                        <input type="file" name="dosya2" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Güncelle" class="btn btn-success">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </section>
+                                    }
+                                }
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                @foreach (var itemAlt in ViewBag.tabpanel as List<Sayfalar>)
+                                {
+                                    @if (@itemAlt.ID == 38)
+                                    {
+                                        <section class="content">
+                                            <form asp-action="Tab_liste_guncel" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Span (başlık)</label>
+                                                        <input type="text" name="sayfa_order" asp-for="@itemAlt.sayfa_order" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputName">Sayfa Adı</label>
+                                                        <input type="text" name="sayfa_adi" asp-for="@itemAlt.sayfa_adi" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa Özet</label>
+                                                        <textarea asp-for="@itemAlt.sayfa_ozet" name="sayfa_ozet"
+                                                            id="editor.@itemAlt.ID" rows="10" style="width:100%;"></textarea>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID');
+                                                    </script>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID@itemAlt.ID');
+                                                    </script>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim</label>
+                                                        <input type="file" name="dosya" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resimm" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim (EK)</label>
+                                                        <input type="file" name="dosya2" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Güncelle" class="btn btn-success">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </section>
+                                    }
+                                }
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                @foreach (var itemAlt in ViewBag.tabpanel as List<Sayfalar>)
+                                {
+                                    @if (@itemAlt.ID == 39)
+                                    {
+                                        <section class="content">
+                                            <form asp-action="Tab_liste_guncel" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="ID" value="@itemAlt.ID" />
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="inputName">Span (başlık)</label>
+                                                        <input type="text" name="sayfa_order" asp-for="@itemAlt.sayfa_order" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputName">Sayfa Adı</label>
+                                                        <input type="text" name="sayfa_adi" asp-for="@itemAlt.sayfa_adi" id="inputName"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="main-content-label tx-11 tx-medium tx-gray-600">Sayfa Özet</label>
+                                                        <textarea asp-for="@itemAlt.sayfa_ozet" name="sayfa_ozet"
+                                                            id="editor.@itemAlt.ID" rows="10" style="width:100%;"></textarea>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID');
+                                                    </script>
+                                                    <script type="text/javascript">
+                                                        CKEDITOR.replace('editor.@itemAlt.ID@itemAlt.ID');
+                                                    </script>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resim" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim</label>
+                                                        <input type="file" name="dosya" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <img class="img-fluid" src="/uploads/@itemAlt.sayfa_resimm" /> <br />
+                                                        <label for="inputDescription">Sayfa Resim (EK)</label>
+                                                        <input type="file" name="dosya2" id="inputName" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Güncelle" class="btn btn-success">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </section>
+                                    }
+                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+    }
+
+    @if (@Model.ID == 2 || @Model.ID == 3 || @Model.ID == 10)
+    {
+        <section class="content">
+            <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                @if (@Model.ID == 10)
+                                {
+                                    
+                                    <h3 class="card-title">Slider Oluştur</h3>
+                                }
+                                else
+                                {
+                                    <h3 class="card-title">@Model.sayfa_adi /alt sayfa oluştur</h3>
+                                }
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="sayfa_kategori" asp-for="@Model.ID" id="inputName"
+                                class="form-control">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="inputName">Sayfa Adı</label>
+                                    <input type="text" name="sayfa_adi" id="inputName" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-secondary">Vazgeç</a>
+                                    <input type="submit" value="Ekle" class="btn btn-success">
+                                </div>
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    }
+
+    @if (@Model.ID == 2 || @Model.ID == 3 || @Model.ID == 10 || @Model.ID == 1)
+    {
+   
+        @* <section class="content">
+            <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                @if (@Model.ID == 10)
+                                {
+                                    
+                                    <h3 class="card-title">Slider Oluştur</h3>
+                                }
+                                else
+                                {
+                                    <h3 class="card-title">@Model.sayfa_adi /alt sayfa oluştur</h3>
+                                }
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="sayfa_kategori" asp-for="@Model.ID" id="inputName"
+                                class="form-control">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="inputName">Sayfa Adı</label>
+                                    <input type="text" name="sayfa_adi" id="inputName" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-secondary">Vazgeç</a>
+                                    <input type="submit" value="Ekle" class="btn btn-success">
+                                </div>
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                </div>
+            </form>
+        </section> *@
+
+        <section class="content">
+            <form asp-action="Sayfa_kategori" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                @if (@Model.ID == 10)
+                                {
+                                    
+                                    <h3 class="card-title">Slider</h3>
+                                }
+                                else
+                                {
+                                    <h3 class="card-title">Alt kategoriler</h3>
+                                }
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table table-striped projects">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 1%">
+                                                ID
+                                            </th>
+                                            <th>
+                                                Sayfa Adı
+                                            </th>
+                                            <th>
+                                                Sayfa URL
+                                            </th>
+                                            <th>
+                                                Sayfa Tarih
+                                            </th>
+                                            <th>
+                                                İşlemler
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in ViewBag.sayfalistesi as List<Sayfalar>)
+                                        {
+                                            @if (@item.sayfa_kategori == Model.ID.ToString())
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @item.ID
+                                                    </td>
+                                                    <td>
+                                                        @item.sayfa_adi
+                                                    </td>
+                                                    <td>
+                                                        @item.sayfa_slug
+                                                    </td>
+                                                    <td>
+                                                        @item.sayfa_tarih
+                                                    </td>
+
+                                                    <td class="project-actions text-left">
+                                                        <a class="btn btn-info btn-sm" asp-action="Sayfa" asp-route-id="@item.ID">
+                                                            <i class="fas fa-pencil-alt">
+                                                            </i>
+                                                            Düzenle
+                                                        </a>
+                                                        @if (ViewBag.developDelete == 1)
+                                                        {
+                                                               <a asp-action="Sayfa_sil" asp-route-id="@item.ID"
+                                                                    class="btn btn-danger btn-sm">
+                                                                    <i class="fas fa-trash"></i>
+                                                                    Sil
+                                                                </a>
+                                                        }
+
+                                                        @if (@Model.ID == 2 || @Model.ID == 3 || @Model.ID == 10)
+                                                        {
+                                                               <a asp-action="Sayfa_sil" asp-route-id="@item.ID"
+                                                                    class="btn btn-danger btn-sm">
+                                                                    <i class="fas fa-trash"></i>
+                                                                    Sil
+                                                                </a>
+                                                        }
+                                                        
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </section>
     
     }
 </div>

@@ -5,144 +5,149 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Panell
 build_property.RootNamespace = Panell
-build_property.ProjectDir = c:\Users\HP\Desktop\Panell\Panell\
+build_property.ProjectDir = C:\Users\HP\Desktop\Panell\Panell\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = c:\Users\HP\Desktop\Panell\Panell
+build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\Panell\Panell
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Arama_sonuclari.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Arama_sonuclari.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcmFtYV9zb251Y2xhcmkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Error1.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Error1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Haber.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Haber.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIYWJlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Haberler.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Haberler.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIYWJlcmxlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Hakkimizda.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Hakkimizda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIYWtraW1pemRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Head.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Head.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Iletisim.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Iletisim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbGV0aXNpbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Index.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Kurumsal.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Kurumsal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxLdXJ1bXNhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Menu.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Yapim_asamasinda.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Sayfa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTYXlmYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Yapim_asamasinda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxZYXBpbV9hc2FtYXNpbmRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Home/Yatirimci_endeksi_gorusu.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Home/Yatirimci_endeksi_gorusu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxZYXRpcmltY2lfZW5kZWtzaV9nb3J1c3UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Ayarlar.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Ayarlar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcQXlhcmxhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/ChartRadarTimeLineTanimListe.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/ChartRadarTimeLineTanimListe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcQ2hhcnRSYWRhclRpbWVMaW5lVGFuaW1MaXN0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Chart_yonetimi.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Chart_yonetimi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcQ2hhcnRfeW9uZXRpbWkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_guncelle.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_guncelle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcRGlsX2d1bmNlbGxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_listesi.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_listesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcRGlsX2xpc3Rlc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_olustur.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Dil_olustur.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcRGlsX29sdXN0dXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Iletisim.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Iletisim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcSWxldGlzaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Index.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Login.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Mesajlar.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Mesajlar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcTWVzYWpsYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcU2F5ZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa_listesi.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa_listesi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcU2F5ZmFfbGlzdGVzaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa_olustur.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Sayfa_olustur.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcU2F5ZmFfb2x1c3R1ci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/Temsilci.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/Temsilci.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcVGVtc2lsY2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Panel/_ChartHeaderEkleDuzenle.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Panel/_ChartHeaderEkleDuzenle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcX0NoYXJ0SGVhZGVyRWtsZUR1emVubGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Shared/Error.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Shared/PanelLayout.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Shared/PanelLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhbmVsTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/_ViewImports.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/_ViewStart.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/HP/Desktop/Panell/Panell/Views/Shared/_Layout.cshtml]
+[C:/Users/HP/Desktop/Panell/Panell/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-u22u8i8t5z

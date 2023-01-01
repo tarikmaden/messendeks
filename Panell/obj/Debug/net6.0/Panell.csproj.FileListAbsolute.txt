@@ -554,3 +554,8 @@ C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\refint\Panell.dll
 C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\Panell.pdb
 C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\Panell.genruntimeconfig.cache
 C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\ref\Panell.dll
+C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\staticwebassets\msbuild.Panell.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\staticwebassets\msbuild.build.Panell.props
+C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Panell.props
+C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Panell.props
+C:\Users\HP\Desktop\Panell\Panell\obj\Debug\net6.0\staticwebassets.pack.json

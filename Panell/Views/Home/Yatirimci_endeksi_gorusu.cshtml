@@ -24,7 +24,7 @@
     <div class="container">
         <div class="page-head-content">
             <h1 class="title mini">
-                @ViewBag.yatirimci.sayfa_desc
+                @ViewBag.yatirimci.sayfa_adi
             </h1>
             <ul class="me-breadcrumb">
                 <li><a href="../">Ana Sayfa</a></li>
@@ -43,12 +43,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="area-president text-center">
-                                    <div class="img-president">
-                                        <img src="~/site_assets/assets/img/president.png" alt="Yönetim Kurulu" class="img-cover" />
-                                    </div>
+                                    @if (ViewBag.profil.sayfa_resim != null)
+                                    {
+                                        <div class="img-president">
+                                            <img src="/uploads/@ViewBag.profil.sayfa_resim" alt="Yönetim Kurulu" class="img-cover" />
+                                        </div>
+                                    }
                                     <div class="img-detail">
-                                        <h4 class="title">Özgür Burak AKKOL</h4>
-                                        <h5 class="subtitle">MESS Yönetim Kurulu Başkanı</h5>
+                                        <h4 class="title">@ViewBag.profil.sayfa_adi</h4>
+                                        <h5 class="subtitle">@ViewBag.profil.sayfa_ozet</h5>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +72,7 @@
                 <div class="me-three-box section">
                     <div class="container">
                         <div class="head-title">
-                            <h2 class="title">MESS Yatırımcı Görüşü Endeksi</h2>
+                            <h2 class="title">@ViewBag.yatirimci.sayfa_order @ViewBag.yatirimci.sayfa_adi</h2>
                             <!--<h3 class="subtitle">Alt Bileşenleri</h3>-->
                         </div>
 
@@ -112,8 +115,14 @@
                             <div class="col-md-7">
                                 <div class="images-area">
                                     <div class="images">
-                                        <img src="~/site_assets/assets/img/endex-left.png" alt="endex" class="img left" />
-                                        <img src="~/site_assets/assets/img/endex-right.png" alt="endex" class="img right" />
+                                        @if (ViewBag.yatirimci.sayfa_resim != null)
+                                        {
+                                            <img src="/uploads/@ViewBag.yatirimci.sayfa_resim" alt="@ViewBag.yatirimci.sayfa_adi" class="img left" />                                    
+                                        }
+                                        @if (ViewBag.yatirimci.sayfa_resimm != null)
+                                        {
+                                            <img src="/uploads/@ViewBag.yatirimci.sayfa_resimm" alt="@ViewBag.yatirimci.sayfa_adi" class="img right" />
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -124,9 +133,12 @@
                 <div class="me-boxes section" id="me-why-girdiler">
                     <div class="container">
                         <div class="head-title text-start">
-                            <img src="~/site_assets/assets/img/nedir-text.svg" alt="nedir" class="mb-4" />
-                            <h3 class="subtitle mb-0">MESS Yatırımcı Görüş Endeksi</h3>
-                            <h2 class="title">Girdiler</h2>
+                            @if (@ViewBag.girdiler.sayfa_resim != null)
+                            {
+                                <img src="/uploads/@ViewBag.girdiler.sayfa_resim" alt="nedir" class="mb-4" />
+                            }
+                            <h3 class="subtitle mb-0">@ViewBag.girdiler.sayfa_adi</h3>
+                            <h2 class="title">@ViewBag.girdiler.sayfa_ozet</h2>
                         </div>
 
                         <div class="grid">
@@ -169,8 +181,11 @@
                             <div class="row align-items-center">
                                 <div class="col-md-6 col-lg-5 order-sm-2 order-md-1 order-1">
                                     <div class="me-section-content">
-                                        <img src="~/site_assets/assets/img/analiz-text.svg" alt="analiz" class="img-text" />
-                                        <h2 class="title"><span>MESS Yatırımcı</span> @ViewBag.yatirimci_text.sayfa_adi</h2>
+                                        @if (@ViewBag.yatirimci_text.sayfa_resimm != null)
+                                        {
+                                            <img src="/uploads/@ViewBag.yatirimci_text.sayfa_resimm" alt="@ViewBag.yatirimci_text.sayfa_adi" class="img-text" /> 
+                                        }
+                                        <h2 class="title"><span>@ViewBag.yatirimci_text.sayfa_order</span> @ViewBag.yatirimci_text.sayfa_adi</h2>
                                         <p>
                                             @Html.Raw(ViewBag.yatirimci_text.sayfa_icerik)
                                         </p>
@@ -227,32 +242,30 @@
                             <div class="tab-pane fade show active" id="tab-1" role="tabpanel" tabindex="0">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="img">
-                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
-                                        </div>
+                                        @if (ViewBag.tabpanel.sayfa_resim != null)
+                                        {
+                                            <div class="img">
+                                                <img src="/uploads/@ViewBag.tabpanel.sayfa_resim" alt="@ViewBag.tabpanel.sayfa_adi" class="img-cover" />
+                                            </div>
+                                        }
+                                        
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="content">
-                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            @if (ViewBag.tabpanel.sayfa_resimm != null)
+                                            {
+                                                <img src="/uploads/@ViewBag.tabpanel.sayfa_resimm" alt="" class="mb-4" />
+                                            }
                                             <div class="head-title text-start">
-                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h3 class="subtitle">@ViewBag.tabpanel.sayfa_order</h3>
                                                 <h2 class="title">
-                                                    Türkiye’deki Yatırımcının Odak<br />
-                                                    Noktaları
+                                                    @ViewBag.tabpanel.sayfa_adi
                                                 </h2>
                                             </div>
                                             <p>
-                                                Endeks çalışması sürecinde her bir katılımcıdan 15 alt başlık içerisinden yatırımcı gözüyle en önemli olduğunu düşündükleri 5 maddeyi belirtmeleri istenmiştir. En çok seçilen ve yatırımcı odak
-                                                noktaları arasında yer alan maddelere bakıldığında:
+                                                @Html.Raw(ViewBag.tabpanel.sayfa_ozet)
                                             </p>
-                                            <ol class="mb-5">
-                                                <li class="mb-1">Yurt içi makroekonomik koşulların iyileşmesi</li>
-                                                <li class="mb-1">Mevzuatın yatırım ortamını desteklemesi</li>
-                                                <li class="mb-1">Finansman opsiyonlarına erişim</li>
-                                                <li class="mb-1">Yatırımcılara devlet teşvikleri</li>
-                                                <li class="mb-1">Hammaddeye ve diğer girdilere erişim şeklinde gerçekleşmiştir</li>
-                                            </ol>
                                             <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
                                         </div>
                                     </div>
@@ -262,24 +275,29 @@
                             <div class="tab-pane fade" id="tab-2" role="tabpanel" tabindex="0">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="img">
-                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
-                                        </div>
+                                        @if (ViewBag.tabpanel2.sayfa_resim != null)
+                                        {
+                                            <div class="img">
+                                                <img src="/uploads/@ViewBag.tabpanel2.sayfa_resim" alt="@ViewBag.tabpanel.sayfa_adi" class="img-cover" />
+                                            </div>
+                                        }
+                                        
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="content">
-                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            @if (ViewBag.tabpanel2.sayfa_resimm != null)
+                                            {
+                                                <img src="/uploads/@ViewBag.tabpanel2.sayfa_resimm" alt="" class="mb-4" />
+                                            }
                                             <div class="head-title text-start">
-                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h3 class="subtitle">@ViewBag.tabpanel2.sayfa_order</h3>
                                                 <h2 class="title">
-                                                    Türkiye’deki Yatırım Ortamının<br />
-                                                    Gelişime Açık Yanları
+                                                    @ViewBag.tabpanel2.sayfa_adi
                                                 </h2>
                                             </div>
                                             <p>
-                                                Bu yıl ilk defa hayata geçirilen çalışma sonuçlarına göre pazar (yurt içi makroekonomik performans ve yurt içi pazar büyüklüğü) ve hukuki altyapı (genel güvenlik ortamı ve mevzuat) düşük güven
-                                                aralığında yer almaktadır. Bu alanlarda yapılacak iyileştirmelerin sanayi yatırımcısının yatırımlarını artırmalarına ve büyümelerine katkısı çok büyük olacaktır.
+                                                @Html.Raw(ViewBag.tabpanel2.sayfa_ozet)
                                             </p>
                                             <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
                                         </div>
@@ -290,32 +308,30 @@
                             <div class="tab-pane fade" id="tab-3" role="tabpanel" tabindex="0">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="img">
-                                            <img src="~/site_assets/assets/img/tab-1.png" alt="tab" class="img-cover" />
-                                        </div>
+                                        @if (ViewBag.tabpanel3.sayfa_resim != null)
+                                        {
+                                            <div class="img">
+                                                <img src="/uploads/@ViewBag.tabpanel.sayfa_resim" alt="@ViewBag.tabpanel.sayfa_adi" class="img-cover" />
+                                            </div>
+                                        }
+                                        
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="content">
-                                            <img src="~/site_assets/assets/img/analiz-text.svg" alt="" class="mb-4" />
+                                            @if (ViewBag.tabpanel3.sayfa_resimm != null)
+                                            {
+                                                <img src="/uploads/@ViewBag.tabpanel3.sayfa_resimm" alt="" class="mb-4" />
+                                            }
                                             <div class="head-title text-start">
-                                                <h3 class="subtitle">Sonuçlara Göre</h3>
+                                                <h3 class="subtitle">@ViewBag.tabpanel3.sayfa_order</h3>
                                                 <h2 class="title">
-                                                    Türkiye’deki Yatırımcının Odak<br />
-                                                    Noktaları 3
+                                                    @ViewBag.tabpanel3.sayfa_adi
                                                 </h2>
                                             </div>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit donec a adipiscing aliquam dictumst tempor quam. Non amet nunc ipsum tellus. Ut metus, facilisis aliquam, cras suspendisse at quis.
-                                                Id elit purus urna quis elementum tortor turpis imperdiet consequat. Egestas integer duis imperdiet justo, turpis parturient pharetra nulla adipiscing. Commodo a risus pretium nisi, semper
-                                                dignissim congue.
+                                                @Html.Raw(ViewBag.tabpanel3.sayfa_ozet)
                                             </p>
-                                            <p>
-                                                Amet quis aliquam purus nulla et mauris turpis. In pellentesque diam elit est. Cursus sed neque tempor, viverra arcu magnis quis imperdiet. Vivamus ultricies sagittis amet facilisis feugiat.
-                                                Risus in eu dolor, ullamcorper faucibus massa nibh. Eget vestibulum dolor velit etiam vitae semper. Nunc, integer sit turpis lorem amet. In leo et molestie tempus diam leo. Id tincidunt mattis
-                                                aliquam nulla pretium sagittis, ultricies aliquet.
-                                            </p>
-                                            <p>Sed molestie lacus feugiat nunc pretium at enim. Sed purus tortor, mi tristique sit a morbi mauris, felis. Magna dui facilisis malesuada.</p>
                                             <a href="#" class="btn btn-orange">MESS Yatırımcı Görüşü İndir <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="" class="img-right" /></a>
                                         </div>
                                     </div>
@@ -374,3 +390,9 @@
         <div class="margin"></div>
     </div>
 </div>
+
+
+@section Scripts{
+    <script src="~/site_assets/assets/js/chart.js?=time=@ViewBag.time"></script>
+
+}
