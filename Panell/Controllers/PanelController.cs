@@ -450,6 +450,27 @@ namespace Panell.Controllers
 
         }
 
+        [Authorize]
+        [HttpGet]
+        public IActionResult Link(int ID, Dsayfalar Dsayfa)
+        {
+
+            ViewBag.developDelete = 0;
+
+            ViewBag.yatirimci_alt = _context.Dsayfalar.ToList();
+            ViewBag.dillistesiKontrol = _context.Diller.Count();
+            ViewBag.dillistesi = _context.Diller.ToList();
+            ViewBag.Digersayfalar = _context.Dsayfalar.Where(x => x.baglantili_sayfa == ID.ToString()).ToList();
+            ViewBag.sayfalistesi = _context.Sayfalar.ToList();
+            ViewBag.galerilistesi = _context.Galeri.Where(x => x.gelen_id == ID.ToString()).ToList();
+            var guncellenecekSayfa = _context.Sayfalar.Find(ID);
+
+            ViewBag.tabpanel = _context.Sayfalar.Where(x => Convert.ToInt32(x.sayfa_kategori) == 8).ToList();
+
+            return View(guncellenecekSayfa);
+
+        }
+
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -502,6 +523,39 @@ namespace Panell.Controllers
             return Redirect(Request.Headers["Referer"].ToString());
 
         }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Link_guncel(Sayfalar Sayfa)
+        {
+            Sayfalar updatesayfa = _context.Sayfalar.Find(Sayfa.ID);
+
+            if (Sayfa.Dosya != null)
+            {
+                var dosya_yolu = Path.Combine(_hostEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(dosya_yolu))
+                {
+                    Directory.CreateDirectory(dosya_yolu);
+                }
+                var filename = $"{DateTime.Now:MMddHHmmss}.{Sayfa.Dosya.FileName.Split('.').Last()}";
+                var tamDosyaAdi = Path.Combine(dosya_yolu, filename);
+                using (var dosyaAkisi = new FileStream(tamDosyaAdi, FileMode.Create))
+                {
+                    await Sayfa.Dosya.CopyToAsync(dosyaAkisi);
+                }
+                updatesayfa.sayfa_resim = filename;
+            }
+
+            updatesayfa.sayfa_order = Sayfa.sayfa_order;
+            updatesayfa.sayfa_ozet = Sayfa.sayfa_ozet;
+            updatesayfa.sayfa_icerik = Sayfa.sayfa_icerik;
+            _context.SaveChanges();
+
+            return Redirect(Request.Headers["Referer"].ToString());
+
+        }
+
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]

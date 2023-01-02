@@ -103,7 +103,7 @@
                     <p>
                         @Html.Raw(ViewBag.analiz.sayfa_icerik)
                     </p>
-                    <a href="#" class="btn btn-primary">
+                    <a href="@ViewBag.linkler.sayfa_order" class="btn btn-primary">
                         Sonuçları İncele
                         <img src="~/site_assets/assets/img/icons/arrow-right-white.svg" alt="right" class="img-right" />
                     </a>
@@ -159,7 +159,7 @@
                         }
                         <h2 class="title">
                             <span>
-                                <span style="display: inline;" class="fw-bold">@ViewBag.yatirimci.sayfa_order</span>
+                                <span style="display: inline;" class="fw-bold text-dark">@ViewBag.yatirimci.sayfa_order</span>
                                 @ViewBag.yatirimci.sayfa_adi
                             </span>
                             <!-- Araştırması Raporu -->
@@ -168,9 +168,9 @@
                             @Html.Raw(@ViewBag.yatirimci.sayfa_ozet)
                         </p>
                         <div class="on-desktop">
-                            <a href="#" class="btn">MESS Yatırımcı Görüşü'nü İncele <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                            <a href="@ViewBag.linkler.sayfa_icerik" class="btn">MESS Yatırımcı Görüşü'nü İncele <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
 
-                            <a href="#" class="btn">MESS Yatırımcı Görüşü'nü İndir <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
+                            <a href="@ViewBag.linkler.sayfa_resim" download="@ViewBag.linkler.sayfa_resim" class="btn">MESS Yatırımcı Görüşü'nü İndir <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
                         </div>
                         <div class="on-mobile d-none">
                             <a href="#" class="btn">Raporu İncele <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" /></a>
@@ -208,7 +208,7 @@
                                 <p>
                                     @Html.Raw(@ViewBag.endeksi.sayfa_ozet)
                                 </p>
-                                <a href="#" class="link">
+                                <a href="@ViewBag.linkler.sayfa_ozet" class="link">
                                     Daha Fazla
                                     <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="right" class="img-right" />
                                 </a>

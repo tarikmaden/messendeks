@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="page-head-content">
 			<h1 class="title">
-				@ViewBag.KurumsalPage.sayfa_adi
+				@ViewBag.KurumsalPage.sayfa_order
 			</h1>
 			<ul class="me-breadcrumb">
 				<li><a href="../">Ana Sayfa</a></li>
@@ -55,7 +55,10 @@
 
 								<div class="col-lg-8">
 									<div class="me-as-content">
-										<img src="~/site_assets/assets/img/mess-hakkinda-text.svg" alt="" />
+										@if (ViewBag.KurumsalPage.sayfa_resimm != null)
+										{
+											<img src="/uploads/@ViewBag.KurumsalPage.sayfa_resimm" alt="@ViewBag.KurumsalPage.sayfa_adi" />
+										}
 
 										<p>
 											@Html.Raw(ViewBag.KurumsalPage.sayfa_ozet)

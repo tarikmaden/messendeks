@@ -69,7 +69,14 @@
                                         <li><a href="#" class="active">@item.sayfa_adi</a></li>
                                     </ul>
                                     <h2 class="title">
-                                        <a style="color:inherit" href="/Haber/@item.ID">@item.sayfa_adi</a>
+                                        @if (item.sayfa_kategori == "3")
+                                        {
+                                            <a style="color:inherit" href="/Haber/@item.ID">@item.sayfa_adi</a>                                 
+                                        }
+                                        else
+                                        {
+                                            <a style="color:inherit" href="/hakkimizda/@item.sayfa_slug">@item.sayfa_adi</a>                                 
+                                        }
                                     </h2>
                                     <a href="/Haber/@item.ID" class="link">Sayfaya Git
                                     <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="" />
