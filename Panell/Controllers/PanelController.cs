@@ -383,6 +383,24 @@ namespace Panell.Controllers
         }
 
         [Authorize]
+        public async Task<IActionResult> Resim_sil(int ID)
+        {
+            Sayfalar resimsil = _context.Sayfalar.Find(ID);
+            resimsil.sayfa_resim = null;
+            _context.SaveChanges();
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
+        
+        [Authorize]
+        public async Task<IActionResult> Resimm_sil(int ID)
+        {
+            Sayfalar resimsil = _context.Sayfalar.Find(ID);
+            resimsil.sayfa_resimm = null;
+            _context.SaveChanges();
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
+
+        [Authorize]
         public async Task<IActionResult> Chart_sil(int ID)
         {
             var silinecekchart = await _context.Dsayfalar.FindAsync(ID);

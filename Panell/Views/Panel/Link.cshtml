@@ -53,10 +53,13 @@
                                 <input type="text" name="sayfa_icerik" asp-for="@Model.sayfa_icerik" id="inputName" class="form-control" />
                             </div>
                             <div class="form-group">
-                                @if (Model.sayfa_resim != null || Model.sayfa_resim != "")
+                                @if (Model.sayfa_resim != null)
                                 { 
                                     <a href="/uploads/@Model.sayfa_resim" download="/uploads/@Model.sayfa_resim">
                                         <i style="font-size: 50px;" class="fas fa-file"></i>
+                                    </a> <br> <br>
+                                    <a asp-action="Resim_sil" asp-route-id="@Model.ID" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Sil
                                     </a> <br>
                                 }
                                 <label for="inputDescription">MESS Yatırımcı Görüşü'nü İndir </label>

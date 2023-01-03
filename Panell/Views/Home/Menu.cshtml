@@ -12,17 +12,49 @@
 					{
                         if (@item.ID != 1)
                         {
-						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+						    <li>
+                                @if (ViewBag.currentUrl == "/" + @item.sayfa_slug)
+								{
+									<a href="/@item.sayfa_slug" class="link active">@item.sayfa_adi</a>
+								}
+								else
+								{
+									<a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a>
+								}
+                            </li>
                         }
 					}
-                    <li><a href="/iletisim" class="link">İletişim</a></li>
+                    @if (ViewBag.currentUrl == "/iletisim")
+					{
+						<li><a href="/iletisim" class="link active">İletişim</a></li>
+					}
+					else
+					{
+					    <li><a href="/iletisim" class="link">İletişim</a></li>
+					}
                 </ul>
             </div>
 
             <div class="col-6">
                 <ul class="nav-links right">
-                    <li><a href="/yatirimci-gorusu-endeksi" class="link">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
-                    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+                    @if (ViewBag.currentUrl == "/yatirimci-gorusu-endeksi")
+					{
+						<li><a href="/yatirimci-gorusu-endeksi" class="link active">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
+					}
+					else
+					{
+					    <li><a href="/yatirimci-gorusu-endeksi" class="link">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
+					}
+                    @if (ViewBag.currentUrl == "/yapim-asamasinda")
+					{
+						<li><a href="/yapim-asamasinda" class="link active">Sanayicinin Nabzı Endeksi</a></li>
+					}
+					else
+					{
+					    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+					}
+                    
+                    
                     <li>
                         <a href="javascript:void(0)" id="jsSearchOpen" class="link search">
                             <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />

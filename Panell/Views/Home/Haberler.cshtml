@@ -24,7 +24,7 @@
     </div>
     <div class="container">
         <div class="page-head-content">
-            <h1 class="page-title"><span class="subtitle-light">Metal Sanayinin Nabzını Tutan</span> Güncel Haberler
+            <h1 class="page-title"><span class="subtitle-light">@ViewBag.seo.sayfa_order</span> @ViewBag.seo.sayfa_ozet
             </h1>
             <ul class="me-breadcrumb">
                 <li><a href="index.aspx">Ana Sayfa</a></li>
@@ -43,7 +43,7 @@
                         @foreach (var item in ViewBag.Haberler)
                         {
                             <div class="me-new-horizontal">
-                                <span class="date">
+                                <span class="date" style="font-weight:500">
                                     <img src="~/site_assets/assets/img/icons/calendar-blue.svg" alt="Calendar">
                                     @item.sayfa_tarih
                                 </span>
@@ -51,7 +51,7 @@
                                 <p>
                                     @Html.Raw(item.sayfa_icerik)
                                 </p>
-                                <a href="/Haber/@item.ID" class="link">Haberi Görüntüle
+                                <a href="/Haber/@item.ID" class="link" style="font-weight:500">Haberi Görüntüle
                                     <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="" />
                                 </a>
                             </div>

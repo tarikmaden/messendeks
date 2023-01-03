@@ -114,43 +114,86 @@
                                     <div class="accordion accordion-info" id="accordionInfo">
                                         @foreach (var TemsilciItem in ViewBag.temsilci as List<Temsilci>)
                                         {
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="h1">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#c1_@TemsilciItem.ID" aria-expanded="true" aria-controls="c1_@TemsilciItem.ID">
-                                                        @TemsilciItem.title
-                                                    </button>
-                                                </h2>
-                                                <div id="c1_@TemsilciItem.ID" class="accordion-collapse collapse show"
-                                                data-bs-parent="#accordionInfo">
-                                                    <div class="accordion-body">
-                                                        <div class="info-box">
-                                                            <div class="icon"><img
-                                                                src="~/site_assets/assets/img/icons/contact-location.svg"
-                                                                alt="" /></div>
-                                                            <p>@TemsilciItem.adres</p>
-                                                        </div>
-                                                        <div class="info-box">
-                                                            <div class="icon"><img
-                                                                src="~/site_assets/assets/img/icons/contact-phone.svg"
-                                                                alt="" /></div>
-                                                            <a href="tel:@TemsilciItem.phone">@TemsilciItem.phone</a>
-                                                        </div>
-                                                        <div class="info-box">
-                                                            <div class="icon"><img
-                                                                src="~/site_assets/assets/img/icons/contact-phone.svg"
-                                                                alt="" /></div>
-                                                            <a href="tel:@TemsilciItem.phone2">@TemsilciItem.phone2</a>
-                                                        </div>
-                                                        <div class="info-box">
-                                                            <div class="icon"><img
-                                                                src="~/site_assets/assets/img/icons/contact-email.svg"
-                                                                alt="" /></div>
-                                                            <a href="mailto:@TemsilciItem.email">@TemsilciItem.email</a>
+                                            if (TemsilciItem == ViewBag.temsilci[0])
+                                            {
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="h1">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#c1_@TemsilciItem.ID" aria-expanded="true" aria-controls="c1_@TemsilciItem.ID">
+                                                            @TemsilciItem.title
+                                                        </button>
+                                                    </h2>
+                                                    <div id="c1_@TemsilciItem.ID" class="accordion-collapse collapse show"
+                                                        data-bs-parent="#accordionInfo">
+                                                        <div class="accordion-body">
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-location.svg"
+                                                                    alt="" /></div>
+                                                                <p>@TemsilciItem.adres</p>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-phone.svg"
+                                                                    alt="" /></div>
+                                                                <a href="tel:@TemsilciItem.phone">@TemsilciItem.phone</a>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img style="width: 15px;"
+                                                                    src="~/site_assets/assets/img/icons/print.png"
+                                                                    alt="" /></div>
+                                                                <a href="tel:@TemsilciItem.phone2">@TemsilciItem.phone2</a>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-email.svg"
+                                                                    alt="" /></div>
+                                                                <a href="mailto:@TemsilciItem.email">@TemsilciItem.email</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
+                                            else
+                                            {
+                                                 <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="h1">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#c1_@TemsilciItem.ID" aria-expanded="true" aria-controls="c1_@TemsilciItem.ID">
+                                                            @TemsilciItem.title
+                                                        </button>
+                                                    </h2>
+                                                    <div id="c1_@TemsilciItem.ID" class="accordion-collapse collapse"
+                                                        data-bs-parent="#accordionInfo">
+                                                        <div class="accordion-body">
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-location.svg"
+                                                                    alt="" /></div>
+                                                                <p>@TemsilciItem.adres</p>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-phone.svg"
+                                                                    alt="" /></div>
+                                                                <a href="tel:@TemsilciItem.phone">@TemsilciItem.phone</a>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img style="width: 15px;"
+                                                                    src="~/site_assets/assets/img/icons/print.png"
+                                                                    alt="" /></div>
+                                                                <a href="tel:@TemsilciItem.phone2">@TemsilciItem.phone2</a>
+                                                            </div>
+                                                            <div class="info-box">
+                                                                <div class="icon"><img
+                                                                    src="~/site_assets/assets/img/icons/contact-email.svg"
+                                                                    alt="" /></div>
+                                                                <a href="mailto:@TemsilciItem.email">@TemsilciItem.email</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
                                         }
 
                                     </div>

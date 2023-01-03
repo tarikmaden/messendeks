@@ -6,43 +6,81 @@
 
 <nav class="me-navbar me-navbar-page with-dark-right">
     <div class="container-fluid p-0">
-		<div class="row g-0">
-			<div class="col-6">
-				<ul class="nav-links left">
-					<li class="logo">
-						<a href="../">
-							<img src="~/uploads/@ViewBag.Iletisim.favicon" alt="logo" class="img-logo" />
-						</a>
-					</li>
-					@foreach (var item in ViewBag.sayfalistesi)
+		 <div class="row g-0">
+            <div class="col-6">
+                <ul class="nav-links left">
+                    <li class="logo">
+                        <a href="../">
+                            <img src="~/uploads/@ViewBag.Iletisim.favicon" alt="logo" class="img-logo" />
+                        </a>
+                    </li>
+                    @foreach (var item in ViewBag.sayfalistesi)
 					{
                         if (@item.ID != 1)
                         {
-						    <li><a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a></li>
+						    <li>
+                                @if (ViewBag.currentUrl == "/" + @item.sayfa_slug)
+								{
+									<a href="/@item.sayfa_slug" class="link active">@item.sayfa_adi</a>
+								}
+								else
+								{
+									<a href="/@item.sayfa_slug" class="link">@item.sayfa_adi</a>
+								}
+                            </li>
                         }
 					}
-                    <li><a href="/iletisim" class="link">İletişim</a></li>
-				</ul>
-			</div>
+                    @if (ViewBag.currentUrl == "/iletisim")
+					{
+						<li><a href="/iletisim" class="link active">İletişim</a></li>
+					}
+					else
+					{
+					    <li><a href="/iletisim" class="link">İletişim</a></li>
+					}
+                </ul>
+            </div>
 
-			<div class="col-6">
-				<ul class="nav-links right">
-                    <li><a href="/yatirimci-gorusu-endeksi" class="link">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
-                    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+            <div class="col-6">
+                <ul class="nav-links right">
+                    @if (ViewBag.currentUrl == "/yatirimci-gorusu-endeksi")
+					{
+						<li><a href="/yatirimci-gorusu-endeksi" class="link active">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
+					}
+					else
+					{
+					    <li><a href="/yatirimci-gorusu-endeksi" class="link">@ViewBag.yatirimci_gorusu_endeksi.sayfa_adi</a></li>
+					}
+                    @if (ViewBag.currentUrl == "/yapim-asamasinda")
+					{
+						<li><a href="/yapim-asamasinda" class="link active">Sanayicinin Nabzı Endeksi</a></li>
+					}
+					else
+					{
+					    <li><a href="/yapim-asamasinda" class="link">Sanayicinin Nabzı Endeksi</a></li>
+					}
+                    
+                    
                     <li>
-                        <a href="javascript:void(0)" id="jsSearchOpen" class="link search"><img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+                        <a href="javascript:void(0)" id="jsSearchOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
                     </li>
                 </ul>
                 <ul class="nav-links right mobile">
                     <li>
-                        <a href="javascript:void(0)" id="jsSearchOpen2" class="link search"><img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" /></a>
+                        <a href="javascript:void(0)" id="jsSearchOpen2" class="link search">
+                            <img src="~/site_assets/assets/img/icons/search-white.svg" alt="Ara" />
+                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search"><img src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" /></a>
+                        <a href="javascript:void(0)" id="jsOffcanvasOpen" class="link search">
+                            <img src="~/site_assets/assets/img/icons/hamburger.svg" alt="Ara" />
+                        </a>
                     </li>
                 </ul>
-			</div>
-		</div>
+            </div>
+        </div>
 	</div>
 </nav>
 @Html.Partial("Head")
@@ -78,7 +116,7 @@
                                             <a style="color:inherit" href="/hakkimizda/@item.sayfa_slug">@item.sayfa_adi</a>                                 
                                         }
                                     </h2>
-                                    <a href="/Haber/@item.ID" class="link">Sayfaya Git
+                                    <a href="/Haber/@item.ID" class="link" style="font-weight:500">Sayfaya Git
                                     <img src="~/site_assets/assets/img/icons/arrow-right-orange.svg" alt="" />
                                 </a>
                                 </div>
